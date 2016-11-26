@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="my-app-login">
+    <head>
+        <meta charset="utf-8" />
+        <title>Formulário</title>
+        
+        <link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="css/index.css" />
+        
+        <script type="text/javascript" src="angular/angular-1.5.6/angular.js" ></script>
+        <script type="text/javascript" src="angular/angular-1.5.6/angular-ui-router.js"></script>
+        <script type="text/javascript" src="angular/angular-1.5.6/angular-animate.js" ></script>
+        <script type="text/javascript" src="angular/ui-bootstrap-tpls-1.3.3.min.js" ></script>
+        <script type="text/javascript" src="angular/angularControllers.js" ></script>
+        
+    </head>
+    <body>
+        <article>
+            <section class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                <div>
+                    <img src="imagens/logo.jpg" class="imageLogo" />
+                </div>
+            </section>
+
+            <!-- Angular UI Router -->
+            <section class="col-md-6 col-sm-6 col-lg-6 col-xs-6 bloco sectionForm">
+                <div ui-view></div>
+            </section>
+            
+
+            <!--<section class="col-md-6 col-sm-6 col-lg-6 col-xs-6 bloco sectionForm" ng-controller="ModalDemoCtrl">
+                <form name="userForm" action="#">
+                    E-mail
+                    <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                        <input type="email" class="form-control"  id="email" name="email" placeholder="E-mail" ng-model="user.email" autofocus required />
+                        <p class="help-block" ng-show="userForm.email.$invalid && !userForm.email.$pristine">O e-mail está incorreto</p>
+                        VALIDAR O EMAIL TAMBÉM
+                    </div>
+                    
+                    Senha
+                    <div class="form-group" ng-class="{ 'has-error' : userForm.senha.$invalid && !userForm.senha.$pristine }">
+                        <input type="password" class="form-control" id="senha" name="senha" pattern="[0123456789]+|[A-Z]+|[a-z]+|[@|#|$|%|&|*|!]+" ng-model="user.senha" ng-minlength="8" ng-maxlength="12" placeholder="Senha" required />
+                        <p class="help-block" ng-show="userForm.senha.$invalid && !userForm.senha.$pristine">A senha é obrigatória</p>
+                        <p ng-show="userForm.senha.$error.minlength" class="help-block">A senha tem que ter no mínimo 8 caracteres.</p>
+                        <phelp-block ng-show="userForm.senha.$error.maxlength" class="help-block">a senha tem que ter no máximo 12 caracteres.</p>
+                        VALIDAR O PATTERN TAMBÉM
+                    </div>
+                    
+                    Botão
+                    <button class="btn btn-primary" ng-disabled="userForm.$invalid">Acessar</button>
+                    <br />
+                     <a href="#" ng-click="Open()">Esqueci minha senha</a>
+                </form>
+            </section>-->
+            
+            <!-- Modal -->
+            <!--<script type="text/ng-template" id="modalFormulario.html">
+                Modal Formulario
+                <section id="modalFormulario" ng-controller="modalInstanceCtrl">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Esqueceu sua senha?</h3>
+                        <h5 class="modal-title">Preencha o campo abaixo com seu e-mail. E enviaremos um link por email para alteração da senha.</h5>
+                    </div>
+                    <div class="modal-body">
+                        <section class="container container-body">
+                            <form name="rsUserForm" novalidate ng-submit="">
+                                <div class="form-group" ng-class="{ 'has-error' : rsUserForm.rsEmail.$invalid && !rsUserForm.rsEmail.$pristine }">
+                                    <input type="email" class="form-control" id="rsEmail" name="rsEmail" value="{{email}}" ng-model="user.rsEmail" placeholder="Digite seu e-mail" autofocus required />
+                                    <p class="help-block" ng-show="rsUserForm.rsEmail.$invalid && !rsUserForm.rsEmail.$pristine">O e-mail é obrigatório para recuperar sua senha.</p>
+                                    <p class="help-block" class="has-success" ng-show="esconder">O link para a alteração da senha foi enviado para seu e-mail!</p>
+                                    <p class="help-block" class="has-error" ng-show="!esconder">Seu e-mail não consta em nossa base. Cadastre um novo e-mail, clicando <a href="#">aqui</a>!</p>
+                                </div>
+                            </form>
+                        </section>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" ng-disabled="rsUserForm.$invalid" ng-click="EnviarToken()">Enviar</button>
+                    </div>
+                </section>
+            </script>-->
+        </article>
+    </body>
+</html>

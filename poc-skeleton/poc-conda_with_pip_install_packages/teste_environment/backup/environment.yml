@@ -1,0 +1,7 @@
+name: ambienteTeste
+channels:
+dependencies:
+   - requests
+#   - pip:
+#     - "--editable=git+http://github.com/Junior743/poc-pip_install@1.2.1#egg=poc-pip_install"
+#     - "--editable=git+https://github.com/Junior743/poc-pip_install#egg=poc-pip_install" com segurando

@@ -1,0 +1,23 @@
+body article {
+    margin-top: 150px;
+    /*width: 70%;*/
+}
+
+/*body article section {
+    width: 50%;
+    margin: 0 auto;
+    float: right;
+    padding-top: 200px;
+}*/
+
+.form-control {
+    width: 70%;
+}
+
+.imageLogo {
+    width: 90%;
+}
+
+.sectionForm {
+    top: 65px   ;
+}

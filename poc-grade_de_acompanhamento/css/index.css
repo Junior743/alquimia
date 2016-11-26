@@ -1,0 +1,40 @@
+/* HTML ELEMENTS */
+body {
+    margin: 20px;
+}
+
+table tr td {
+    background-color: #eee;
+    border: solid thin #bbb;
+    padding: 5px;
+}
+
+table tr td table {
+    border: solid thin #bbb;
+}
+
+table tr td table tr td {
+    border: solid thin #bbb;
+    padding: 5px;
+}
+
+/* CLASS */
+.diaAcompanhamento {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+.diaPedido {
+    background-color: red;
+    color: white;
+}
+
+.diaEntrega {
+    background-color: green;
+    color: white;
+}
+
+.diaFaturamento {
+    background-color: blue;
+    color: white;
+}

@@ -1,0 +1,9 @@
+Nomenclaturas:
+    1 - python-transform_in_object
+    2 - nomeLinguagem-nome_POC
+    
+except: 
+    caso não tenha uma liguagem especifica, ou apenas uma linguagem:
+    1 - poc-hello_world_rest
+    
+    O nome "poc" deve vir no lugar do nomeda linguagem

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Documentação em html</title>
+    </head>
+
+    <body>
+        <style>
+            header {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 18pt;
+                font-weight: bold;
+                text-align: center;
+                padding-top: 100px;
+                height: 150px;
+                width: 100%;
+                background-color: #eee;
+            }
+            p {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            h1, h2, h3, h4, h5, h6 { color: #111; font-family: Verdana, Geneva, Tahoma, sans-serif; }
+            h4, h5, h6 { font-weight: normal;}
+            h1 {
+                width: 100%;
+                height: 30px;
+                background-color: royalblue;
+                color: white;
+                text-align: center;
+                padding-top: 5px;
+            }
+            h3 {
+                color: royalblue;
+                font-size: 16pt;
+            }
+
+            table {
+                width: 100%;
+                padding: 5px;
+            }
+            table, table tr td {
+                padding: 10px;
+                border: solid 1px #999;
+            }
+            table thead td {
+                padding: 0;
+                margin: 0;
+            }
+            table thead {
+                padding: 0;
+                margin: 0;
+            }
+            table thead td { background-color: royalblue; }
+            table thead td h4 {
+                color: white;
+                text-align: center;
+            }
+
+            ul li { /* lista */
+                font-size: 12pt;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                list-style-type: decimal-leading-zero;
+            }
+
+            ul li a { /* sumario */
+                color: #111;
+                text-decoration: none;
+                font-size: 12pt;
+            }
+        </style>
+
+        <header>
+            Documentação funcional
+            <br>
+            TEVEC
+        </header>
+        <article>
+            <p>
+                <h1>Detalhes</h1>
+                <h4>
+                    <p><b>Titulo:</b> Implementação do instalador</p>
+                    <p><b>Nome do elaborador:</b> Junior</p>
+                    <p><b>Data de criação da especificação:</b> 30/08/2016</p>
+                    <p><b>Nome do revisor:</b> Wanderson</p>
+                    <p><b>Data de revisão da especificação:</b> 31/08/2016</p>
+                    <p><b>Nome do(s) Projeto(s) envolvido(s):</b> moura, wickbold, ampm, gerdal, danone, crm.</p>
+                    <p><b>Branch(s) utlizada(s):</b> [MRA_20160802_01], [WICK_20160802_01], [AMPM_20160802_01], [GRD_20160802_01],
+                    [DAN_20160802_01], [CRM_20160802_01]</p>
+                    <p><b>Prazo:</b> 26/08/2016</p>
+                    <p><b>Dificuldade:</b> ## (Pontuação no Sprint Planning (SCRUM))</p>
+                </h4>
+                <h4>
+                    <p><b>Prioridade:</b> Média</p>
+                    <p><b>Complexidade:</b> Média</p>
+                    <p><b>Camada:</b> Back-end</p>
+                    <p><b>Motivo:</b> Novo Componente</p>
+                </h4>
+            </p>
+
+            <br>
+
+            <p>
+                <h1>Sumário</h1>
+                <ul>
+                    <li><a href="#introducao">Introducao</a></li>
+                    <li><a href="#glossario">glossario</a></li>
+                    <li><a href="#negocio">negocio</a>
+                        <ul>
+                            <li><a href="#objetivo">objetivo</a></li>
+                            <li><a href="#solicitacao">solicitacao</a></li>
+                            <li><a href="#mapa">mapa</a></li>
+                            <li><a href="#cenario">cenario</a></li>
+                            <li><a href="#requisitosfuncionais">requisitosfuncionais</a></li>
+                            <li><a href="#requisitosnaofuncionais">requisitosnaofuncionais</a></li>
+                            <li><a href="#usabilidade">usabilidade</a></li>
+                            <li><a href="#planoimplementacao">planoimplementacao</a></li>
+                            <li><a href="#biblioteca">biblioteca</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#tecnica">tecnica</a>
+                        <ul>
+                            <li><a href="#regras">regras</a></li>
+                            <li><a href="#restricoes">restricoes</a></li>
+                            <li><a href="#funcionalidades">funcionalidades</a></li>
+                            <li><a href="#estrutura">estrutura</a></li>
+                            <li><a href="#utilizacao">utilizacao</a></li>
+                            <li><a href="#observacoes">observacoes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </p>
+
+            <br>
+            
+            <p>
+                <a name="introducao"></a>
+                <h1>Introdução</h1>
+                <h4>
+                    <p>Este documento tem como objetivo detalhar as regras de negocio, requisitos, detalhes e estrutura de código e
+                    utilização do programa Instalador.</p>
+
+                    <p>O Instalador é utilizado para clonar um projeto alocado no github e instalar o mesmo dentro do ambiente python.
+                    Onde este pode ser chamado como um modulo em qualquer programa python.</p>
+
+                    <p>A tarefa de trazer o projeto para dentro do ambiente python é muito interessante para por exemplo: realizar testes
+                    facilmente fora do ambiente de desenvolvimento.</p>
+
+                    <p>É possivel tanto instalar quanto desinstalar um projeto do github no ambiente python, apenas setando o nome do
+                    projeto alocado no github. O programa também suporta instalar a versão (tag) de um release especifico de um
+                    projeto.</p>
+                </h4>
+            </p>
+
+            <p>
+                <a name="glossario"></a>
+                <h1>Glossário dos termos</h1>
+                <h4>
+                    <ul>
+                        <li>Parâmetro: Valores inseridos no terminal (cmd no Windows) antes de rodar o programa. Ex: “python
+    Instalador.py -h”, neste caso “-h” é um parâmetro.</li>
+                        <li>Usuário: Utilizador do programa (Instalador.py).</li>
+                        <li>Ambiente python, ambiente: Ambiente gerenciado pelo conda para desenvolvimento utilizando python.</li>
+                    </ul>
+                </h4>
+            </p>
+
+            <br>
+
+            <p>
+                <a name="negocio"></a>
+                <h1>Regras de negócio</h1>
+                
+                <a name="objetivo"></a>
+                <h3>Objetivo</h3>
+                <h4><p>Disponibilizar um projeto alocado no github dentro do ambiente python (podendo setar a versão do release) ou
+remover o mesmo do ambiente.</p></h4>
+
+                <br>
+
+                <a name="solicitacao"></a>
+                <h3>Solicitação</h3>
+                <h4>
+                    <p>Tendo em vista a quantidade de problemas gerados relacionados com versionamente em testes em produção e QAS
+surgiu a necessidade de equalizar as versões para testes, dê certa forma a geração de um ambiente para teste em
+produção e QAS é um tanto quanto burocratica, pois há a necessidade de clonar os projetos manualmente do github
+e configurar o mesmo (onde se dedica um tempo a mais), ou seja o trabalho para testar é manual e sua configuração
+também.</p>
+                    <p>Então surgiu a ideia de criar um automatizador, para clonar os prjetos do github e instalar o mesmo dentro do
+ambiente python.</p>
+                    <p>Este automatizador deve ser uma aplicação console em python, onde é passado parâmetros para o programa e este
+por sua vez tomar decisões em cima dos parâmetros passados, por exemplo: “python programa.py -i
+nome_do_projeto” para instalar o projeto que está alocado no github no ambiente.</p>
+                    <p>O programa também deverá ter a funcionalidade de instalar determinada versão do projeto também alocada no
+github, pois pode haver a necessidade de instalar uma versão anterior do projeto.</p>
+                    <p>Em poucas palavras este automatizador deve ser uma facilitador para realização de testes em produção e QAS.</p>
+                </h4>
+
+                <br>
+
+                <a name="mapa"></a>
+                <h3>Mapa conceitual</h3>
+                <img src="" alt="Mapa conceitual">
+
+                <br>
+
+                <a name="cenario"></a>
+                <h3>Cenário atual</h3>
+                <h4>
+                    <p>Hoje a pessoa que vai realizar testes em produção ou QAS precisa clonar localmente o projeto que está alocado no
+github.</p>
+                </h4>
+
+                <br>
+                
+                <a name="requisitosfuncionais"></a>
+                <h3>Requisitos funcionais</h3>
+                <table>
+                    <thead>
+                        <td><h4><b>ID</b></h4></td>
+                        <td><h4><b>Requisito</b></h4></td>
+                        <td><h4><b>Descrição</b></h4></td>
+                        <td><h4><b>Caso de uso</b></h4></td>
+                    </thead>
+                    <tr>
+                        <td><h5>1</h5></td>
+                        <td><h5>Instalar projeto no ambiente python.</h5></td>
+                        <td><h5>Instalar projeto alocado no github dentro
+do ambiente python setando o nome do
+mesmo.</h5></td>
+                        <td><h5>Instalar projeto no ambiente
+python.</h5></td>
+                    </tr>
+                    <tr>
+                        <td><h5>2</h5></td>
+                        <td><h5>Desinstalar projeto do
+ambiente python.</h5></td>
+                        <td><h5>Desinstalar projetos no ambiente python
+setando o nome do mesmo.</h5></td>
+                        <td><h5>Desinstalar projeto do ambiente
+python.</h5></td>
+                    </tr>
+                    <tr>
+                        <td><h5>3</h5></td>
+                        <td><h5>Instalar determinada versão
+do projeto.</h5></td>
+                        <td><h5>Instalar versão (tag) de um determinado
+projeto alocado no github dentro do
+ambiente python setando o nome e a
+versão (tag) do mesmo.</h5></td>
+                        <td><h5>Instalar determinada versão do
+projeto no ambiente python.</h5></td>
+                    </tr>
+                    <tr>
+                        <td><h5>4</h5></td>
+                        <td><h5>Listar ambientes.</h5></td>
+                        <td><h5>Listar todos os ambiente python locais com um simples comando.</h5></td>
+                        <td><h5>Lembrar/descobrir os ambientes
+python locais disponiveis.</h5></td>
+                    </tr>
+                    <tr>
+                        <td><h5>5</h5></td>
+                        <td><h5>Exibir ajuda.</h5></td>
+                        <td><h5>Exibir um texto de ajuda ao usuário
+quando o mesmo solicitar atravéz de um
+comando.</h5></td>
+                        <td><h5>Dúvidas por parte do usuário.</h5></td>
+                    </tr>
+                </table>
+
+                <br>
+
+                <a name="requisitosnaofuncionais"></a>
+                <h3>Requisitos não funcionais</h3>
+                <table>
+                    <thead>
+                        <td><h4><b>ID</b></h4></td>
+                        <td><h4><b>Requisito</b></h4></td>
+                        <td><h4><b>Descrição</b></h4></td>
+                    </thead>
+                    <tr>
+                        <td><h5>1</h5></td>
+                        <td><h5>Validações.</h5></td>
+                        <td><h5>Validar se o ambiente python está ativo, validar a versão do python.</h5></td>
+                    </tr>
+                </table>
+
+                <br>
+
+                <a name="usabilidade"></a>
+                <h3>Usabilidade</h3>
+                <h4>
+                    <p>O usuário deverá executar o programa no terminal (cmd no Windows) utilizando o python, ex: “python
+Instalador.py”. Mas o programa deverá aceitar parâmetros e tomar decisões apartir dos parâmetros inseridos. Ficaria
+algo como “python Instalador.py -h” para exibir uma ajuda ao usuario, ou “python Instalador.py -i cliente-wickbold”
+para instalar um projeto alocado no github dentro do ambiente python.</p>
+                </h4>
+
+                <br>
+
+                <a name="planoimplementacao"></a>
+                <h3>Plano de implantação</h3>
+                <table>
+                    <thead>
+                        <td><h4><b>Fase</b></h4></td>
+                        <td><h4><b>Objetivo</b></h4></td>
+                        <td><h4><b>Prioridade</b></h4></td>
+                    </thead>
+                    <tr>
+                        <td><h5>Fase 1</h5></td>
+                        <td><h5>Implementar instalador.</h5></td>
+                        <td><h5>Média.</h5></td>
+                    </tr>
+                    <tr>
+                        <td><h5>Fase 2</h5></td>
+                        <td><h5></h5></td>
+                        <td><h5></h5></td>
+                    </tr>
+                </table>
+
+                <br>
+
+                <a name="biblioteca"></a>
+                <h3>Biblioteca</h3>
+                <ul>
+                    <li>http://stackoverflow.com/questions/19042389/conda-installing-upgrading-directly-from-github</li>
+                </ul>
+
+            </p>
+
+            <br>
+
+            <p>
+                <a name="tecnica"></a>
+                <h1>Especificação técnica</h1>
+
+                <a name="regras"></a>
+                <h3>Regras</h3>
+                <ul>
+                    <li>Deverá ser passado no minimo um e no máximo quatro parâmetros ao executar o programa.</li>
+                    <li>É necessario ter um ambiente python a parte.</li>
+                    <li>O ambiente python precisa necessariamente ser gerenciado pelo conda.</li>
+                    <li>O ambiente python gerenciado pelo conda deve estar ativo antes de instalar ou desinstalar um projeto
+utilizando o programa.</li>
+                </ul>
+
+                <br>
+
+                <a name="restricoes"></a>
+                <h3>Restrições</h3>
+                <ul>
+                    <li>Não há restrições.</li>
+                </ul>
+
+                <br>
+                
+                <a name="funcionalidades"></a>
+                <h3>Funcionalidades</h3>
+                <ul>
+                    <li>Instalação de projetos no ambiente python: O programa possui a feature de instalar um projeto que está
+alocado no servidor do github dentro do ambiente python, para isto basta apenas setar o nome do projeto
+no github.</li>
+                    <li>Desinstalação de projetos do ambiente python: O programa possui a feature de desinstalar um projeto que
+foi instalado anteriormente dentro do ambiente python, para isto basta apenas setar o nome do projeto
+alocado no github.</li>
+                    <li>Atualização do python: O programa também verifica se a versão do python e igual a versão do python
+utilizada pelo strike. Caso a versão seja diferente o programa tem a funcionalidade de atualizar a versão do
+python, deixando igual a versão utilizada pelo strike.</li>
+                    <li>Validações: O programa possuí também uma serie de validações para verificar: Se o ambiente python está
+ativo (o ambiente python precisa estar ativo para a instalação do projeto dentro do mesmo), versão do
+python, quantidade de parametros inseridos na execução do programa.</li>
+                    <li>Listar os ambientes python: Com apenas um simples comando o programa consegue listar todos os ambiente
+python locais. Esta feature é interessante para consultar/lembrar os ambiente python.</li>
+                    <li>Instalar a versão de um release especifico: O programa também pode instalar uma versão especifica de um
+projeto alocado no github dado o nome da tag (versão) no github.</li>
+                    <li>Ajuda: O programa possui a funcionalidade de exibir uma ajuda com um pequeno manual de utilização do
+programa.</li>
+                    <li>Dependências: Antes de instalar um projeto no ambiente python o programa pergunta ao usuário se
+o mesmo deseja atualizar todas as dependências do projeto ja existentes na maquina. Isto é util se o usuário possui um
+ambiente com as versões dos pacotes python intencionalmente diferentes do strike (ex: para realizar provas
+de conceito) e não deseja que as versões de seus pacotes sejam substituidas.</li>
+                </ul>
+
+                <br>
+                
+                <a name="estrutura"></a>
+                <h3>Estrutura</h3>
+                <h4><p>Veja abaixo toda a estrutura de classes, metodos e variaveis do instalador.</p></h4>
+                <ul>
+                    <li><h4><b>Classes:</b></h4></li>
+
+                    <ul>
+                        <li>
+                            <p><h4><b>Principal:</b></h4></p>
+                            <h4><p>Classe reponsável pelo comportamento de todo o programa.</p></h4>
+
+                            <ul>
+                                <li>
+                                    <h4><b>Variaveis globais:</b></h4>
+                                    <h4>
+                                        <ul>
+                                            <li>versao_release: Guarda a versão do release setado pelo usuário como parâmetro.</li>
+                                            <li>versao_python: Guarda a versão do python utilizada pelo usuário.</li>
+                                            <li>nome_cliente: Guarda o nome do cliente setado pelo usuário como parâmetro.</li>
+                                            <li>lista_mensagens: Uma lista de todas as mensagens utilizadas pelo sistema.</li>
+                                            <li>nome_programa: Guarda o nome do programa, neste caso Instalador.</li>
+                                            <li>versao_python_strike: Guarda a versão do python utilizada pelo corporativo.</li>
+                                        </ul>
+                                    </h4>
+                                </li>
+                                <li>
+                                    <h4><b>Métodos:</b></h4>
+                                    
+                                    <ul>
+                                        <li>
+                                            <h4><p>__init__():</p></h4>
+                                            <h4>
+                                                <p>Esse é um método construtor, nele é executada toda a lógica do programa.</p>
+                                                <p><b>Parâmetros:</b> Não há parâmetros</p>
+
+                                                <table>
+                                                    <thead>
+                                                        <td><h4><b>Detalhe</b></h4></td>
+                                                        <td><h4><b>Código</b></h4></td>
+                                                    </thead>
+                                                    <tr>
+                                                        <td>Neste momento o metodo verifica se há algum parametro com o valor '--atualizar-python',
+                            caso haja é chamado o metodo 'atualizarVersaoPython()' para atualizar a versão do
+                            python.</td>
+                                                        <td># Atualizar versao do python
+                                                        for indice, valor_parametro in enumerate(lista_parametros):
+                                                        if valor_parametro == '--atualizar-python':
+                                                        concluido = Instalador.atualizarVersaoPython(self, lista_parametros[indice + 1])
+                                                        exit()</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Verifica se há algum parametro com o valor '-h', se houver o programa chama o método
+                            'exibirAjuda()' que imprime um texto para ajuda de utilização do programa.</td>
+                                                        <td># Exibir ajuda
+                            for indice, valor_parametro in enumerate(lista_parametros):if valor_parametro == '-h':
+                            print(Instalador.exibirAjuda(self))
+                            exit()</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Verifica se há algum parametro com o valor '-l', se houver o programa chama o método
+                            'listarAmbientes()' que imprime uma lista de todos os ambientes python locais.</td>
+                                                        <td># Exibir lista de ambientes
+                            for indice, valor_parametro in enumerate(lista_parametros):
+                            if valor_parametro == '-l':
+                            concluido = Instalador.listarAmbientes(self)
+                            exit()</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Verifica se há algum parametro com o valor '-v', se houver o programa atribui o próximo
+                            valor da lista de parametros para uma variavel global chamada 'versao_release'.</td>
+                                                        <td># Setando a versão do release
+                            for indice, valor_parametro in enumerate(lista_parametros):
+                            if valor_parametro == '-v':
+                            # Verifica se o indice existe na lista
+                            if (indice + 1) in lista_parametros:
+                            self.versao_release = (lista_parametros[indice + 1])</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Verifica se há algum parametro com o valor '-i' ou 'instalar', se houver o programa verifica
+                            se existe um próximo valor na lista de parametros (este próximo valor deve ser o nome do
+                            projeto no github), caso haja, o próximo valor é atribuido a uma veriavel chamada
+                            'nome_cliente'. Em seguida é chamado o método 'instalarPacote()' que tem a função de
+                            instalar o projeto do github no ambiente python.</td>
+                                                        <td># Instalando o projeto do cliente e suas dependencias no ambiente python
+                            for indice, valor_parametro in enumerate(lista_parametros):
+                            if valor_parametro == '-i' or valor_parametro == 'instalar':
+                            if len(lista_parametros) > 2 and len(lista_parametros) < 6:
+                            self.nome_cliente = lista_parametros[indice + 1]
+                            # Instalando o projeto cliente e suas dependencias
+                            concluido = Instalador.instalarPacote(self)
+                            else:
+                            print(self.lista_mensagens[8] + self.lista_mensagens[9])
+                            exit()</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Verifica se há algum parametro com o valor '-r' ou 'remover', se houver o programa verifica
+                            se existe um próximo valor na lista de parametros (este próximo valor deve ser o nome do
+                            projeto no github), caso haja, o próximo valor é atribuido a uma veriavel chamada
+                            'nome_cliente'. Em seguida é chamado o método 'desinstalarPacote()' que tem a função
+                            de desinstalar o projeto do github do ambiente python.</td>
+                                                        <td># Desinstalando o projeto do cliente e suas dependencias do ambiente pythonfor indice, valor_parametro in enumerate(lista_parametros):
+                            if valor_parametro == '-r' or valor_parametro == 'remover':
+                            if (indice + 1) in lista_parametros:
+                            self.nome_cliente = lista_parametros[indice + 1]
+                            # Desinstalando o projeto cliente e suas dependencias
+                            concluido = Instalador.desinstalarPacote(self)
+                            else:
+                            print(self.lista_mensagens[8] + self.lista_mensagens[9])
+                            exit()</td>
+                                                    </tr>
+                                                </table>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <h4><b>instalarPacote():</b></h4>
+                                            <h4>
+                                                <p>Esse método tem como objetivo instalar um projeto do github no ambiente python dado o nome do projeto no github.</p>
+                                                <p><b>Parâmetros:</b> Não há parâmetros</p>
+                                                <table>
+                                                    <thead>
+                                                        <td><h4><b>Detalhe</b></h4></td>
+                                                        <td><h4><b>Código</b></h4></td>
+                                                    </thead>
+                                                    <tr>
+                                                        <td>O programa faz uma pergunta ao usuário, perguntando se ele deseja realmente instalar o
+                            projeto, se o usuario digitar 'y' e der enter o programa entende que ele deseja instalar o
+                            projeto no ambiente python.</td>
+                                                        <td>if input(self.lista_mensagens[2]) == 'y':</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Neste momento o programa pega o caminho do ambiente python atravez do atributo
+                            'prefix' da biblioteca 'sys'. Após é concatenado com o caminho até a paste '/site-packages/'
+                            onde são instalador os pacotes no ambiente python.</td>
+                                                        <td># Pegando o caminho do ambiente python
+                            print(self.lista_mensagens[5])
+                            caminho_ambiente = str(sys.prefix) + '/lib/python' + self.versao_python + '/site-
+                            packages/'</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>O programa verifica se a variavel global 'versao_release' está preenchida. Se sim ela é
+                            concatenada com o valor atribuido a variavel 'comando_pip', caso contrario ela não é
+                            concatenada.
+                            A variavel 'comando_pip' recebe o comando utilizado pelo 'pip (instalador de pacotes
+                            python)' para realizar a instalação do projeto no ambiente python.</td>
+                                                        <td># Gerando o comando para o 'pip install'
+                            print(self.lista_mensagens[11])
+                            if self.versao_release == None:
+                            comando_pip = 'pip install -e git+http://github.com/TEVEC/' +
+                            str(self.nome_cliente) + '#egg=' + str(self.nome_cliente)else:
+                            comando_pip = 'pip install -e git+https://github.com/TEVEC/' +
+                            str(self.nome_cliente) + '@' + str(self.versao_release) + '#egg=' + str(self.nome_cliente)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>O programa abra uma sessão no terminal (ou cmd, no caso do windows) e vai até o
+                            diretório armazenado na variavel 'caminho_ambiente', após acessar o diretório executa o
+                            comando armazenado na variavel 'comando_pip'. Se um dos comandos falharem é exibida
+                            uma mensagem de erro e o programa é encerrado.</td>
+                                                        <td># Utilizando os comandos
+                            if os.system('cd ' + caminho_ambiente + ' && ' + comando_pip):
+                            exit()</td>
+                                                    </tr>
+                                                </table>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <h4><b>desinstalarPacote():</b></h4>
+                                            <h4>
+                                                <p>Esse método tem como objetivo instalar um projeto do github no ambiente python dado o nome do projeto no github.</p>
+                                                <p><b>Parâmetros:</b> Não há parâmetros</p>
+                                                <table>
+                                                    <thead>
+                                                        <td><h4><b>Detalhe</b></h4></td>
+                                                        <td><h4><b>Código</b></h4></td>
+                                                    </thead>
+                                                    <tr>
+                                                        <td>O programa faz uma pergunta ao usuário, perguntando se ele deseja realmente instalar o
+                            projeto, se o usuario digitar 'y' e der enter o programa entende que ele deseja instalar o
+                            projeto no ambiente python.</td>
+                                                        <td>if input(self.lista_mensagens[3]) == 'y':</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>O programa pega o caminho do ambiente python atravez do atributo 'prefix' da biblioteca
+                            'sys'. Após é concatenado com o caminho até a paste '/site-packages/' onde são instalador
+                            os pacotes no ambiente python.</td>
+                                                        <td># Pegando o caminho do ambiente python
+                            print(self.lista_mensagens[5])
+                            caminho_ambiente = str(sys.prefix) + '/lib/python' + self.versao_python + '/site-
+                            packages/'</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Passando o caminho armazenado na variavel 'caminho_ambiente' como parâmetro do
+                            metodo 'remove()' da biblioteca 'os', onde este realiza a exclusão do diretório do projeto.
+                            Desinstalando o projeto do ambiente python.</td>
+                                                        <td># Pegando o caminho do ambiente python
+                            print(self.lista_mensagens[12])
+                            os.remove(caminho_ambiente + 'src/' + str(self.nome_programa))</td>
+                                                    </tr>
+                                                </table>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <h4><b>listarAmbientes():</b></h4>
+                                            <h4>
+                                                <p>Esse método tem como objetivo listar todos os ambintes python existentes localmente.</p>
+                                                <p><b>Parâmetros:</b> Não há parâmetros</p>
+                                                <table>
+                                                    <thead>
+                                                        <td><h4><b>Detalhe</b></h4></td>
+                                                        <td><h4><b>Código</b></h4></td>
+                                                    </thead>
+                                                    <tr>
+                                                        <td>O programa abre uma sessão do terminal (ou cmd, no caso do windows) e executa o
+                            comando 'conda env list', utilizado para listar os ambientes python.</td>
+                                                        <td># Listando ambientes python
+                            if os.system('conda env list'):
+                            exit()</td>
+                                                    </tr>
+                                                </table>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <h4><b>atualizarVersaoPython():</b></h4>
+                                            <h4>
+                                                <p>Esse método tem como objetivo atualizar o versão do python quando o usuário solicitar.</p>
+                                                <p>
+                                                    <b>Parâmetros:</b>
+                                                    <ul>
+                                                        <li>versao: Utilizado para setar a versão desejada do python.</li>
+                                                    </ul>
+                                                </p>
+                                                <table>
+                                                    <thead>
+                                                        <td><h4><b>Detalhe</b></h4></td>
+                                                        <td><h4><b>Código</b></h4></td>
+                                                    </thead>
+                                                    <tr>
+                                                        <td>O programa abre uma sessão do terminal (ou cmd, no caso do windows) e executa o
+                            comando 'conda install python=' + str(versao))', onde é setado o parâmetro 'versao' para
+                            determinar a versão do python desejada. O python é instalado ou atualizado com este
+                            comando.</td>
+                                                        <td># Atualizando versão do python
+                            if os.system('conda install python=' + str(versao)):
+                            exit()</td>
+                                                    </tr>
+                                                </table>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <h4><b>validacoes():</b></h4>
+                                            <h4>
+                                                <p>Esse método tem como objetivo agrupar e executar validações para o programa.</p>
+                                                <p>
+                                                    <b>Parâmetros:</b>
+                                                    <ul>
+                                                        <li>lista_parametros: Lista de parâmetros recebidos no console.</li>
+                                                    </ul>
+                                                </p>
+                                                <table>
+                                                    <thead>
+                                                        <td><h4><b>Detalhe</b></h4></td>
+                                                        <td><h4><b>Código</b></h4></td>
+                                                    </thead>
+                                                    <tr>
+                                                        <td>Valida se a variavel 'versao_python' que contém a versão do python instalada é diferente
+                            da varivavel 'versao_python_strike' que guarda a versão do python utilizada pelo strike. Se
+                            for diferente é exibida uma mensagem de erro e o programa é encerrado.</td>
+                                                        <td># Validando versão do python
+                            if self.versao_python != self.versao_python_strike:
+                            print(self.lista_mensagens[4])
+                            exit()</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Valida se o tamanho da lista 'lista_parametros' (que contém uma lista dos parâmetros
+                            setados no console) é menor do que 2. Se verdadeiro é exibida uma mensagem de erro e o
+                            programa é encerrado.</td>
+                                                        <td># Validando se falta argumentos
+                            Código
+                            if len(lista_parametros) < 2:
+                            print(self.lista_mensagens[7] + self.lista_mensagens[9])
+                            exit()</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Valida se o tamanho da lista 'lista_parametros' (que contém uma lista dos parâmetros
+                            setados no console) é maior do que 5. Se verdadeiro é exibida uma mensagem de erro e o
+                            programa é encerrado.</td>
+                                                        <td># Validando se há excesso de argumentos
+                            if len(lista_parametros) > 5:
+                            print(self.lista_mensagens[10] + self.lista_mensagens[9])
+                            exit()</td>
+                                                    </tr>
+                                                </table>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <h4><b>exibirAjuda():</b></h4>
+                                            <h4>
+                                                <p>Esse método tem como objetivo exibir uma ajuda ao usuário, quando o mesmo solicitar.</p>
+                                                <p><b>Parâmetros:</b> Não há parâmetros</p>
+                                                <table>
+                                                    <thead>
+                                                        <td><h4><b>Detalhe</b></h4></td>
+                                                        <td><h4><b>Código</b></h4></td>
+                                                    </thead>
+                                                    <tr>
+                                                        <td>Retorna uma string contendo o texto de ajuda.</td>
+                                                        <td>return texto_ajuda</td>
+                                                    </tr>
+                                                </table>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <h4><b>carregarListaMensagens():</b></h4>
+                                            <h4>
+                                                <p>Esse método tem como objetivo carregar uma lista com as mensagens utilizadas pelo programa.</p>
+                                                <p><b>Parâmetros:</b> Não há parâmetros</p>
+                                                <table>
+                                                    <thead>
+                                                        <td><h4><b>Detalhe</b></h4></td>
+                                                        <td><h4><b>Código</b></h4></td>
+                                                    </thead>
+                                                    <tr>
+                                                        <td>Carrega uma lista com as mensagens utilizadas pelo programa.</td>
+                                                        <td>self.lista_mensagens = ['\nInstalação concluída.', ...</td>
+                                                    </tr>
+                                                </table>
+                                            </h4>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </ul>
+                
+                <br>
+                
+                <a name="utilizacao"></a>
+                <h3>Utilização</h3>
+                <h4>
+                    <p>Deverá ter em maquina o programa instalador.py e rodar o mesmo com o comando 'python instalador.py
+<comando> [valor]'</p>
+                    <p>No caso de instalação de projetos no ambiente. Como o repositório no github é privado, há a necessidade de
+autênticação antes de clonar um projeto do github para dentro do ambiente python. Neste caso a aplicação em
+tempo de execução solicitará o login e a senha utilizados pelo usuário no github para realizar a autênticação.</p>
+                    <p>O programa possuí um pequeno manual integrado. Para acessa-lo basta ter o programa em maquina e executar o
+seguinte comando no terminal (cmd no Windows): “python instalador.py -h”.</p>
+                    <img src="" alt="Exemplo de utilização">
+                    <h6>Imagem 1 - Exemplo de utilização do programa</h6>
+                </h4>
+                
+                <br>
+                
+                <a name="observacoes"></a>
+                <h3>Observações</h3>
+                <h4>
+                    <p>O programa não agrupa/separa as dependências de cada projeto. Ou seja não será possivel, caso o usuário desejar
+                    instalar dois projetos distintos com dependências diferentes, ex: “projeto-X” com dependências “A” e “B” e “projeto-
+                    Y” com dependências “A” e “C” no mesmo ambiente e criar um agrupamento/separação de dependências para cadaprojeto, onde as dependências do “projeto-X” não interfiram nas dependências do “projeto-Y”. Isto não funciona pois
+                    o gerenciador de pacotes do ambiente python (conda) não aceita este tipo de funcionalidade, todas as dependências
+                    são instaladas em uma mesma instância. Uma solução para este caso seria criar ambientes diferentes para projetos
+                    distintos onde se deseja separar as dependências, e rodar o Instalador.py setando o projeto desejado em cada
+                    ambiente. Esta observação vale também para dependências com versões diferentes, é possivel ter apenas uma
+                    versão de determinado pacote dentro do ambiente.</p>
+                </h4>
+
+            </p>
+
+        </article>
+
+    </body>
+</html>

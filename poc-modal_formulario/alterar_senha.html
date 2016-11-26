@@ -1,0 +1,18 @@
+<form name="userForm" action="#" novalidate>
+    <div class="form-group" ng-class="{ 'has-error' : userForm.rsSenha.$invalid && !userForm.rsSenha.$pristine }">
+        <input type="password" id="novaSenha" class="form-control" ng-model="user.rsSenha" placeholder="Nova Senha" autofocus required />
+        <p class="help-block" ng-show="userForm.rsSenha.$invalid && !userForm.rsSenha.$pristine">O e-mail é obrigatório para recuperar sua senha.</p>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : userForm.rsSenhaConfirmar.$invalid && !userForm.rsSenhaConfirmar.$pristine }">
+        <input type="password" id="novaSenhaConfirmacao" class="form-control" ng-model="user.rsSenhaConfirmar" placeholder="Repita a Nova Senha" required />
+        <p class="help-block" ng-show="userForm.rsSenhaConfirmar.$invalid && !userForm.rsSenhaConfirmar.$pristine">O e-mail é obrigatório para recuperar sua senha.</p>
+    </div>
+    <!--<p ng-show="userForm.senha.$error.minlength" class="help-block">A senha tem que ter no mínimo 8 caracteres.</p>-->
+    <!--<p ng-show="userForm.senha.$error.maxlength" class="help-block">a senha tem que ter no máximo 12 caracteres.</p>-->
+    <!--Validação para o pattern-->
+    <p ng-show="user.rsSenha != user.rsSenhaConfirmar && !user.rsBotaoEnviar.$pristine" class="help-block">A senhas não são iguais.</p>
+    <p ng-show="userForm.$invalid && !userForm.$pristine" class="help-block">Os campos são obrigatórios.</p>
+
+<button class="btn btn-primary col-md-5" ng-model="user.rsBotaoEnviar" ng-disabled="user.rsSenha != user.rsSenhaConfirmar || userForm.$invalid">Alterar</button>
+</form>

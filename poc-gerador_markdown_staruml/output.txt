@@ -1,0 +1,3120 @@
+# Regras Abastecimento
+
+Se enquadra como regra de abastecimento todo agrupamento de informações que será utilizada para projeção de etapas de um fluxo de abastecimento.
+Exemplo: (Para categoria de produtos "Molhados" a duração entre o faturamento e a entrega será maior que as demais, logo poderá ser utilizado como etiqueta a "Categoria de Produto" com o critério de "Molhados")
+
+## Atributos
+
+### id:
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+### codigo_interno:
+Atributo responsável por garantir a unicidade da regra de abastecimento.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:**60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+### codigo_externo:
+Código de controle gerado pelo usuário, caso haja. Quando não houver deverá ser igual ao código_interno.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+### criterio:
+Criterio utilizado na regra.
+Por Exemplo: (Uma etiqueta de "Categoria de Ponto de Movimentação" o critério poderia ser "Loja Própria")
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+### etiqueta:
+Etiqueta utilizada na regra.
+Exemplo: (Para o critério de "Loja Própria" a etiqueta poderia ser "Categoria de Ponto de Movimentação").
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+
+
+# Item Planejamento X Ponto Movimentação
+
+__Descrição__
+
+Informação granular de um item de planejamento, define informações individuais da representação de quanto cada ponto de movimentação representou naquele planejamento.
+Exemplo: (No Item de planejamento para categoria "Loja Própria", o PDM 1 representou 30%, o PDM 2 representou 40% e o PDM 3 representou 30%)
+
+__Tabela__
+-   itens_planejamento_X_pontos_movimentacao
+-   
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_item\_planejamento:___
+Vínculo do item do planejamento com sua tabela de granularização.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_ponto\_movimentacao:___
+
+Ponto de movimentação da categoria de pontos de movimentação vinculada ao item de planejemento.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+___fator\_representacao:___
+
+Define quanto o ponto de movimentação representou neste item de planejamento.
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:** 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** #.##0,00
+
+
+# Item Planejamento X Produto
+
+__Descrição__
+
+Informação granular de um item de planejamento, define informações individuais da representação de quanto cada produto representou naquele planejamento.
+Exemplo: (No Item de planejamento para categoria "Secos", o Produto 1 representou 30%, o Produto 2 representou 40% e o Produto 3 representou 30%)
+
+__Tabela__
+
+-   itens_planejamento_X_produtos
+ 
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_item\_planejamento:___
+Vínculo do item do planejamento com sua tabela de granularização.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_produto:___
+Produto da categoria de Produtos vinculada ao item de planejemento.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+___fator\_representacao:___
+Define quanto o produto representou neste item de planejamento.
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:** 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** #.##0,00
+
+
+
+
+# Denominadores
+
+__Descrição__
+
+Os denominadores de uma entidade são atributos qualificadores (quantitativos e qualitativos), não podendo ser utilizados como parâmetros de controle.
+
+__Tabela__
+-   denominadores
+
+__Atributos__
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_entidade:___
+Atributo que vincula a entidade da qual a informação se refere.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___tipo\_entidade:___
+
+Define qual o tipo da entidade em texto, a informação se refere.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:**
+-	**Obrigatório:** 
+-	**Padrão:**
+-	**Mascara:**
+
+___atributo:___
+
+Identificador do atributo
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:** 
+-	**Padrão:**
+-	**Mascara:**
+
+___valor:___
+
+Valor do atributo
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:** 
+-	**Padrão:**
+-	**Mascara:**
+
+
+
+# Controle de Ativação
+
+__Descrição__
+
+O controle de ativação contém informações sobre a ativação/desativação de uma entidade do sistema.
+
+__Tabela__
+- controle_ativacao
+
+__Atributos__
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_entidade:___
+Atributo que vincula a entidade da qual a informação se refere.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___data:___
+Data da ativação/desativação.
+
+-	**Classe:** Simples
+-	**Domínio:** Data
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+
+___tipo\_entidade:___
+Define qual o tipo da entidade em texto, a informação se refere.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:**
+-	**Obrigatório:** 
+-	**Padrão:**
+-	**Mascara:**
+
+___quem\_executou:___
+
+Usuário que originou a ativação/desativação.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:**
+-	**Obrigatório:** 
+-	**Padrão:**
+-	**Mascara:**
+
+
+
+
+# Log de Eventos 
+
+__Descrição__
+
+Se enquadra como log de eventos qualquer informação de alteração, exclusão e criação que for feita na linha do tempo.
+
+__Tabela__
+-   log_eventos
+
+__Atributos__
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_entidade:___
+Atributo que vincula a entidade da qual a informação se refere.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___data:___
+Data da alteração, exclusão ou criação.
+
+-	**Classe:** Simples
+-	**Domínio:** Data
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___motivo:___
+Motivo da alteração, os motivos serão textos padronizados controlados do lado da aplicação.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___tipo\_entidade:___
+
+Define qual o tipo da entidade em texto, a informação se refere.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:**
+-	**Obrigatório:** 
+-	**Padrão:**
+-	**Mascara:**
+
+___quem\_executou:___
+
+Usuário que originou o evento.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:**
+-	**Obrigatório:** 
+-	**Padrão:**
+-	**Mascara:**
+
+
+
+
+# Arvore de Categoria de Usuários
+
+__Descrição__
+
+A arvore de categorias permite estruturar os usuários em níveis hierárquicos, possibilitando maior organização e flexibilidade.
+
+__Tabela__
+
+-   arvore_usuarios
+
+__Atributos__
+
+___id\_usuario\_pai:___
+Define o usuário pai.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_usuario\_filho:___
+Define o usuário filho.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+# Pontos Movimentação X Planogramas
+__Descrição__
+
+Permite que possa ser definido qual ponto de movimentação utiliza determinado Planograma.
+
+__Tabela__
+
+-   pontos\_movimentacao\_X\_planogramas
+
+__Atributos__
+
+___id\_ponto\_movimentacao:___
+Define o ponto de movimentação vinculado ao planograma.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_planograma:___
+Define o planograma vinculado ao ponto de movimentação.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+
+# Receitas
+
+__Descrição__
+
+Uma receita representa uma lista de fabricação de um produto em um ponto de movimentação dadas proporções de seus insumos
+
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_produto\_final:___
+Define o produto final produzido a partir de produtos insumos (itens de receita).
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___lote_producao:___
+O lote de produção é a quantidade de unidades de medida do produto final produzidas com uma receita.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___tipo_receita:___
+É o indicativo se ela é variável ou fixa (receita fixa ou variável). Definido através de um ENUMERADOR com os valores 'fixa' ou 'variavel'.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:**
+-	**Obrigatório:** 
+-	**Padrão:** 
+-	**Mascara:**
+
+
+
+
+# Itens Planejamento
+
+__Descrição__
+
+Informação de um item de um planejamento, respondendo as perguntas "O que?", "Para Quem", "Quanto?" e "Quando?".
+
+__Tabela__
+
+-   itens_planejamento
+ 
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_planejamento:___
+Vínculo do cabeçalho do planejamento com seus itens.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_categoria\_produto:___
+Responde a pergunta "O quê?". Será vinculada a categoria de produto, caso o planejamento seja apenas para UM produto, deverá ser criada a categoria com apenas UM produto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_categoria\_ponto\_movimentacao:___
+Responde a pergunta "Para Quem?". Será vinculada a categoria de ponto de movimentação, caso o planejamento seja apenas para UM ponto de movimentação, deverá ser criada a categoria com apenas UM ponto de movimentação.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___quantidade:___
+Responde a pergunta "Quanto?", que define a quantidade planejada para o material e seu destino.
+
+-	**Classe:** Simples
+-	**Domínio:** Data
+-	**Tamanho:** 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___data:___
+Responde a pergunta "Quando?", que define a data de referência do seu produto, destino e quantidade.
+
+-	**Classe:** Simples
+-	**Domínio:** Data
+-	**Tamanho:** 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+
+
+# Planejamento
+
+__Descrição__
+
+Se enquadra como planajemento a determinação de um conjunto de procedimentos, de ações, visando à realização de determinado projeto ou planificação. O planejamento é definido pelas perguntas "O que?", "Para Quem" e "Quanto?", representando que é previsto uma quantidade de um determinado material para um determinado destino. 
+
+__Tabela__
+-   planejamentos
+
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_interno:___
+Atributo responsável por garantir a unicidade do planejamento.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_externo:___
+Código de controle gerado pelo usuário, caso haja. Quando não houver deverá ser igual ao código_interno.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___nome:___
+Nome atribuído ao planejamento
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___frequencia:___
+Frequencia para qual esse planejamento foi feito, um enumerador, podendo ser: (Diario, Semanal, Bimestral, Trimestral, Semestral, Anual, etc...)
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___data_execucao:___
+Data na qual o planejamento foi executado.
+
+-	**Classe:** Simples
+-	**Domínio:** Data
+-	**Tamanho:** 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+
+
+# Perfis X Funcionalidades
+
+__Descrição__
+
+Permite que possa ser definido funcionalidades por perfil
+
+__Tabela__
+
+-   perfis_X_funcionalidades
+-   
+__Atributos__
+
+___id\_funcionalidade:___
+Define a funcionalidade vinculada ao perfil.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_perfil:___
+Define o perfil vinculado a funcionalidade..
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+
+
+# Usuarios X Perfis
+
+__Descrição__
+
+Permite que possa ser definido usuários por perfis.
+
+__Tabela__
+
+-   usuarios_X_perfis
+-   
+__Atributos__
+
+___id\_usuario:___
+Define o usuário vinculado ao perfil.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_perfil:___
+Define o perfil vinculado ao usuário.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+
+
+# Usuarios Pontos de Movimentação
+
+__Descrição__
+
+Permite que possa ser definido usuários por ponto de movimentação.
+
+__Tabela__
+
+-   usuarios_X_pontos_movimentacao
+
+__Atributos__
+
+___id\_ponto\_movimentacao:___
+Define o ponto de movimentação vinculado ao usuário.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_usuaro:___
+Define o usuário vinculado ao ponto de movimentação.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+
+
+# Perfil
+
+__Descrição__
+
+Um perfil é um tipo de caracterização do usuário em termos das funcionalidades a que ele tem acesso.
+Exemplo: (Administrador, Gerente loja, etc...)
+
+__Tabela__
+
+-   perfis
+
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___nome:___
+Nome atribuído ao perfil.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___descricao:___
+Descrição atribuída ao perfil.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 255
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+
+# Funcionalidades
+
+__Descrição__
+
+Uma funcionalidade representa um tipo permitido de ação no sistema.
+Exemplo: (visualizar_pedido, status_pedido_solicitado, etc...)
+
+__Tabela__
+
+-   funcionalidades
+  
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___nome:___
+Nome atribuído a funcionalidade.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___descricao:___
+Descrição atribuída a funcionalidade.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 255
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___acao:___
+Descrição textual sinótica do que a funcionalidade representa (ex.: fazerForecast, atualizarPedido, acessarIndicadorRuptura, etc)
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+
+# Usuário
+
+__Descrição__
+
+Um usuário é qualquer entidade (pessoa ou sistema) capaz de interagir com o sistema.
+
+__Tabela__
+
+-   usuarios
+
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_interno:___
+Atributo responsável por garantir a unicidade do usuário. Utilizado como login e como valor de um identificador unico (Número do RG, Número do CPF...).
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:**60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_externo:___
+Código de controle gerado pelo usuário, caso haja. Quando não houver deverá ser igual ao código_interno. No caso de usuários será o identificador do valor atribuído ao código_interno (RG, CPF).
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___nome:___
+Nome atribuído ao usuário.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___sobrenome:___
+Nome atribuído ao usuário.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___email:___
+Nome atribuído ao usuário.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___ativo:___
+Atributo de identificação de Ativação / Inativação do registro.
+
+-	**Classe:** Simples
+-	**Domínio:** Booleano
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:** VERDADEIRO
+-	**Mascara:**
+
+
+
+# Item Ordem Abastecimento
+
+__Descrição__
+
+Define quais produtos e quantidades estão vinculados a determinada ordem de abastecimento.
+
+__Tabela__
+
+-   itens_ordem_abastecimento
+  
+__Atributos__
+
+___id\_ordem\_abastecimento:___
+Define a ordem de abastecimento que o item esta vinculado.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_produto:___
+Define o produto que o item esta vinculado.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___quantidade:___
+Quantidade que será utilizada de determinado produto em determinada Ordem de Abastecimento.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:** 
+-	**Mascara:**
+
+___valor\_unitario:___
+Valor unitário do item.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:** 
+-	**Mascara:**
+
+
+# Ordem Abastecimento
+
+__Descrição__
+
+Uma ordem de abastecimento é a representatividade de documentos de movimentação de mercadorias em uma cadeia de suprimentos.
+
+__Tabela__
+
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_interno:___
+Atributo responsável por garantir a unicidade da ordem de abastecimento.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:**60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_externo:___
+Código de controle gerado pelo usuário, caso haja. Quando não houver deverá ser igual ao código_interno.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+___id\_etapa\_fluxo:___
+Vínculo da ordem de abastecimento com a etapa na qual ela pertence.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+___valor\_total:___
+
+Valor total da ordem de abastecimento.
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___data\_emissao:___
+
+Define a data de emissao da ordem de abastecimento.
+
+-	**Classe:** Simples
+-	**Domínio:** Data
+-	**Tamanho:** 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** 
+
+___representatividade:___
+
+Define a representação desta ordem de abastecimento, informando a qual tipo de documento ela se refere (Nota Fiscal, Pedido, etc...).
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** 
+
+
+
+
+# Etapas Fluxo de Abastecimento
+
+__Descrição__
+
+Um grupo de etapas significa o ciclo de vida de uma ordem de abastecimento dentro do seu fluxo de abastecimento.
+
+__Tabela__
+
+-   etapas\_fluxo
+
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_interno:___
+Atributo responsável por garantir a unicidade da etapa.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:**60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_externo:___
+Código de controle gerado pelo usuário, caso haja. Quando não houver deverá ser igual ao código_interno.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+___id\_fluxo_abastecimento:___
+Vínculo do fluxo de abastecimento com a etapa.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___ordem:___
+
+A ordem de uma etapa indica a posição que etapa deve estar dentro do fluxo de abastecimento. 
+Exemplo: (Sugestão 1º, Pedido 2º, Faturamento 3º, Entregue 4º)
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___duracao:___
+
+A duração de uma etapa indica a quantidade (em dias) de intervalo entre uma etapa e a próxima etapa
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___data:___
+
+Define a data em que a etapa acontecerá/aconteceu.
+
+-	**Classe:** Simples
+-	**Domínio:** Data
+-	**Tamanho:** 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** 
+
+___tipo\_etapa:___
+
+O tipo de uma etapa indica o significado da etapa para o nucleo de negócio. Um enumerador com os valores ('sugestao', 'pedido', 'faturamento', 'entrega').
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 60 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** 
+
+___nome:___
+
+Nome da etapa.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** 
+
+___descricao:___
+
+Descricao da etapa.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 255 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** 
+
+
+
+
+# Etapas 
+
+__Descrição__
+
+Cadastro geral de etapas que podem ser vinculadas as regras, ou que podem ser utilizadas como padrão.
+
+__Tabela__
+
+-   etapas
+  
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_interno:___
+Atributo responsável por garantir a unicidade da etapa.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:**60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_externo:___
+Código de controle gerado pelo usuário, caso haja. Quando não houver deverá ser igual ao código_interno.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+___ordem:___
+A ordem de uma etapa indica a posição que etapa deve estar dentro do fluxo de abastecimento. 
+Exemplo: (Sugestão 1º, Pedido 2º, Faturamento 3º, Entregue 4º)
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___duracao:___
+A duração de uma etapa indica a quantidade (em dias) de intervalo entre uma etapa e a próxima etapa
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___tipo\_etapa:___
+O tipo de uma etapa indica o significado da etapa para o nucleo de negócio. Um enumerador com os valores ('sugestao', 'pedido', 'faturamento', 'entrega').
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 60 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** 
+
+___nome:___
+
+Nome da etapa.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** 
+
+___descricao:___
+
+Descricao da etapa.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 255 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** 
+
+
+# Fluxo Abastecimento
+
+__Descrição__
+
+Um fluxo de abstecimento representa o processo de abastecimento de um ponto de movimentação.
+
+__Tabela__
+
+-   fluxos_abastecimento
+
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo_interno:___
+Atributo responsável por garantir a unicidade do fluxo de abastecimento.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:**60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo_externo:___
+Código de controle gerado pelo usuário, caso haja. Quando não houver deverá ser igual ao código_interno.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+___id\_fornecedor:___
+Vínculo do ponto de movimentação fornecedor.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_solicitante:___
+
+Vínculo do ponto de movimentação solicitante.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+___data_inicio:___
+
+Define a data de inicio do fluxo de abastecimento
+
+-	**Classe:** Simples
+-	**Domínio:** Data
+-	**Tamanho:** 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** 
+
+___data_fim:___
+
+Define a data de fim do fluxo de abastecimento
+
+-	**Classe:** Simples
+-	**Domínio:** Data
+-	**Tamanho:** 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** 
+
+
+# Regras X Etapas
+
+__Descrição__
+
+Relacionamento de uma Regra de Abastecimento com suas etapas, ordem e duração. A partir deste relacionamento a etapas do fluxo de abastecimento serão projetadas.
+
+__Tabela__
+
+-   regras_X_etapas
+
+__Atributos__
+
+___id\_regra\_abastecimento:___
+Vínculo da regra de abastecimento.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_etapa:___
+
+Vínculo da etapa.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___ordem:___
+
+A ordem de uma etapa indica a posição que etapa deve estar dentro do fluxo de abastecimento.  
+Exemplo: (Sugestão 1º, Pedido 2º, Faturamento 3º, Entregue 4º)
+
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:** 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** 
+
+___duracao:___
+
+A duração de uma etapa indica a quantidade (em dias) de intervalo entre uma etapa e a próxima etapa
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:** 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** 
+
+
+# Regras Abastecimento
+
+__Descrição__
+
+Se enquadra como regra de abastecimento as informações utilizadas para geração do fluxo de abastecimento.
+
+__Tabela__
+
+-   regras_abastecimento
+
+__Atributos__
+
+__id:__
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+__codigo\_interno:__
+Atributo responsável por garantir a unicidade da regra de abastecimento.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:**60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+__codigo\_externo:__
+Código de controle gerado pelo usuário, caso haja. Quando não houver deverá ser igual ao código_interno.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___criterio:___
+Criterio utilizado na regra. 
+Exemplo: No caso de uma regra por categoria de  
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+
+
+# Campanha Marketing X Produto
+
+__Descrição__
+
+Resposável por relacionar quais produtos estão vinculados em cada campanha. No caso do:
+-   Kit: Produtos que formam o kit;
+-   Propaganda: Produto que estão sendo divulgados na propaganda;
+-   Bonificação: Produtos utilizados para uma ação de bonificação.
+
+__Tabela__
+-   campanhas_marketing_X_produtos
+
+__Atributos__
+
+___id\_campanha\_marketing:___
+Define a campanha atribuída ao produto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_produto\_catalogo:___
+Define o produto atribuído a campanha.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+
+# Ação Bonificação
+
+__Descrição__
+
+Vantagem (representada por prêmio ou abatimento no preço da mercadoria) oferecida pelo vendedor ao comprador.
+
+__Tabela__
+-   acoes_marketing_bonificacoes
+
+__Atributos__
+
+___id\_campanha\_marketing:___
+Atributo que define a identidade de uma entidade em seu grupo. Identificador da campanha para a tabela de acoes_marketing_bonificacoes, utilizando a Foreign Key, também como Primary Key.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___valor\_minimo:___
+O valor mínimo de uma bonificação representa o mínimo que deve ser comprado para que o consumidor seja bonificado.
+
+-	**Classe:** Numérico
+-	**Domínio:** 
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** #.##0,00
+
+___valor\_adicional:___
+O valor adicional de uma bonificação indica a quantidade adicional de recursos que deve ser desembolsada para que o consumidor receba a bonificação.
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:** 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** #.##0,00
+
+___valor\_premio:___
+O valor do prêmio de uma bonificação indica o valor do premio que é bonificado.
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:** 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** #.##0,00
+
+
+
+# Ação Propaganda
+
+__Descrição__
+
+Difusão de mensagem verbal, pictórica, musical etc., de conteúdo informativo e persuasivo, em TV, jornal, revista etc...
+
+__Tabela__
+-   acoes_marketing_propagandas
+ 
+__Atributos__
+
+__id\_campanha\_marketing:__
+Atributo que define a identidade de uma entidade em seu grupo. Identificador da campanha para a tabela de acoes_marketing_bonificacoes, utilizando a Foreign Key, também como Primary Key.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+__orcamento:__
+
+O orçamento de uma ação de marketing indica o montante de recursos empregado na propaganda.
+
+-	**Classe:** Numérico
+-	**Domínio:** 
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** #.##0,00
+
+
+
+# Ação Kit
+
+__Descrição__
+
+Uma Ação de Kit pode ser definida quando produtos são vendidos em conjuntos.
+
+__Tabela__
+-   acoes_marketing_kits
+
+__Atributos__
+
+___id\_campanha\_marketing:___
+Atributo que define a identidade de uma entidade em seu grupo. Identificador da campanha para a tabela de Ação Kit, utilizando a Foreign Key, também como Primary Key.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+___preco\_total:___
+
+Preço definido para o kit.
+
+-	**Classe:** Numérico
+-	**Domínio:** 
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** #.##0,00
+
+___desconto\_efetivo:__
+
+O desconto efetivo de um kit indica o percentual de desconto sobre o preço total dos itens que formam o kit
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:** 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:** #.##0,00
+
+
+
+# Pontos Movimentação X Campanha Marketing
+
+__Descrição__
+
+Resposável por relacionar quais pontos de movimentação participam de determinadas campanhas.
+
+__Tabela__
+
+-   pontos_movimentacao_X_campanhas_marketing
+
+__Atributos__
+
+___id_\ponto\_movimentacao:___
+Define o ponto movimentação atribuído a campanha.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_campanha\_marketing:___
+Define a campanha atribuída ao ponto de movimentação.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+# Campanha Marketing
+
+__Descrição__
+
+Uma campanha de marketing consiste em um conjunto de ações promocionais aplicada a uma cadeia logística em que o sistema está implementado, incluindo produtos relacionados e pontos de movimentação relacionados.
+
+__Tabela__
+
+-   campanhas_marketing
+
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo_interno:___
+Atributo responsável por garantir a unicidade da campanha de marketing.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo_externo:___
+Código de controle gerado pelo usuário, caso haja. Quando não houver deverá ser igual ao código_interno.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___nome:___
+Nome atribuído a campanha.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___descricao:___
+Descrição atribuída a campanha.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 255
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___data\_inicio:___
+
+Define a data de inicio da campanha.
+
+-	**Classe:** Simples
+-	**Domínio:** Data
+-	**Tamanho:** 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+
+___data\_fim:___
+
+Define a data de fim da campanha.
+
+-	**Classe:** Simples
+-	**Domínio:** Data
+-	**Tamanho:** 
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___tipo\_acao:___
+
+Define qual o tipo de ação que essa campanha representa, será um atributo polimórfico controlado do lado da aplicação.
+Exemplo: (kit, propaganda, bonificacao).
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+
+
+# Arvore de Categoria de Produto
+
+__Descrição__
+
+A arvore de categorias permite estruturar as categorias em níveis hierárquicos, possibilitando maior organização e flexibilidade na qualificação de produtos. 
+Exemplo: (Beleza -> Shampoo; Próprio->Manufaturados->Bebidas; etc. ...) 
+
+__Tabela__
+
+-   arvore_categorias_produto
+
+__Atributos__
+
+__id\_categoria\_pai:__
+Define a categoria pai do produto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+__id\_categoria\_filho:__
+Define a categoria filha do produto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+# Categoria Produto
+
+__Descrição__
+
+Se enquadra como categoria de produto toda informação que tenha o intuito de qualificar ou agrupar uma determinada coleção de produtos.
+Exemplo: (insumos, produzidos, tributados, beleza, etc...) 
+
+__Tabela__
+
+-   categorias_produto
+
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_interno:___
+Atributo responsável por garantir a unicidade da categoria do produto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_externo:___
+Código de controle gerado pelo usuário, caso haja. Quando não houver deverá ser igual ao código_interno.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___nome:___
+Nome atribuído a categoria de produto.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+
+
+
+# Grupo de Categoria de Produtos
+
+__Descrição__
+
+O Grupo de categorias permite que um produto seja vinculado a mais de uma categoria.
+Exemplo: (Coca-Cola -> Bebidas; Coca-Cola -> Refrigerantes)
+
+__Tabela__
+
+-   grupos_categorias_produto
+
+__Atributos__
+
+___id\_categoria:___
+Define a categoria atribuída ao produto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_produto:___
+Define o ponto de movimentação a ser atribuído a categoria.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+# Itens Receitas
+
+__Descrição__
+
+Produto insumo com suas proporções, utilizados na composição de uma receita.
+
+__Tabela__
+
+-   itens_receitas
+-   
+__Atributos__
+
+___id_receita:___
+Define a receita a qual este item pertence.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_produto:___
+Define o produto vinculado a este item.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___proporcao:___
+Proporcao utilizada deste item em uma receita.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___desvio:___
+Desvio (Margem de erro) da proporção utilizada deste item em uma receita.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___unidade\_medida:___
+Unidade de medida utilizada para informativo de proporcao e desvio.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 10
+-	**Obrigatório:** 
+-	**Padrão:** 
+-	**Mascara:**
+
+
+
+
+# Itens Planograma
+
+__Descrição__
+
+Define quais produtos e quantidades estão vinculados a determinado planograma.
+
+__Tabela__
+
+-   itens_planograma
+
+__Atributos__
+
+___id\_planograma:___
+Define o planograma que o item esta vinculado
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_produto:___
+Define o produto que o item esta vinculado
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___quantidade\_exposicao:___
+Define a quantidade que será utilizada de determinado produto em determinado planograma.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:** 1
+-	**Mascara:**
+
+
+# Produtos Portifólio
+Extenção da entidade produto, incluindo características complementares que se referem especificamente a um ponto de movimentação. Em resumo, é o contexto do produto dentro do ponto de movimentação.
+Exemplo: (Preço produto A = R$ 10,00; Preço produto A no ponto de movimentação = R$ 12,00). A distinção é feita apenas no banco de dados, já a aplicação controla apenas "Produtos".
+
+## Atributos
+
+### id\_ponto\_movimentacao:
+Atributo que define a identidade de uma entidade em seu grupo. Identificador do ponto de movimentação para a tabela de produtos_portifolio, utilizando a Foreign Key, também como Primary Key.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:** 0
+-	**Mascara:**
+
+### id\_produto\_catalogo:
+Atributo que define a identidade de uma entidade em seu grupo. Identificador do produto que esta sendo referenciado para a tabela de produtos_portifolio, utilizando a Foreign Key, também como Primary Key.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+### nivel\_servico:
+Nível de serviço é a base flexível para orientação da qualidade dos serviços prestados em determinado setor, exigência mínima.
+
+-	**Classe:** Simples
+-	**Domínio:** Numerico
+-	**Tamanho:** 
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**#.##0,00
+
+### preco\_venda:
+Preço pelo qual a mercadoria sai ou é vendida pelo ponto de movimentação
+
+-	**Classe:** Simples
+-	**Domínio:** Numerico
+-	**Tamanho:** 
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**#.##0,00
+
+### custo\_compra:
+Custo pelo qual a mercadoria é comprada ou entra no ponto de movimentação.
+
+-	**Classe:** Simples
+-	**Domínio:** Numerico
+-	**Tamanho:** 
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**#.##0,00
+
+### valor\_estoque:
+Valor com o qual a mercadoria é estocada no ponto de venda. O valor padrão é igual ao custo de compra.
+
+-	**Classe:** Simples
+-	**Domínio:** Numerico
+-	**Tamanho:** 
+-	**Obrigatório:** Não
+-	**Padrão:** custo_compra
+-	**Mascara:**#.##0,00
+
+
+### multiplo\_entrada:
+Múltiplo pelo qual a mercadoria entra no ponto de venda.
+
+-	**Classe:** Simples
+-	**Domínio:** Numerico
+-	**Tamanho:** 
+-	**Obrigatório:** Não
+-	**Padrão:** 1
+-	**Mascara:**
+
+### multiplo\_saida:
+Múltiplo pelo qual a mercadoria sai do ponto de venda.
+
+-	**Classe:** Simples
+-	**Domínio:** Numerico
+-	**Tamanho:** 
+-	**Obrigatório:** Não
+-	**Padrão:** 1
+-	**Mascara:**
+
+### projetavel:
+Define se o produto pode ser projetável. Combinação lógica com correlacionavel para obtermos a previsibilidade de um produto.
+
+-	**Classe:** Simples
+-	**Domínio:** Booleano
+-	**Tamanho:** 
+-	**Obrigatório:** Não
+-	**Padrão:** FALSO
+-	**Mascara:**
+
+### correlacionavel:
+Define se o produto pode ser correlacionavel. Combinação lógica com projetavel para obtermos a previsibilidade de um produto.
+
+-	**Classe:** Simples
+-	**Domínio:** Booleano
+-	**Tamanho:** 
+-	**Obrigatório:** Não
+-	**Padrão:** FALSO
+-	**Mascara:**
+
+### comercializado:
+Define se o produto pode é comercializado no ponto de movimentação.
+
+-	**Classe:** Simples
+-	**Domínio:** Booleano
+-	**Tamanho:** 
+-	**Obrigatório:** Não
+-	**Padrão:** FALSO
+-	**Mascara:**
+
+### insumo:
+Define se o produto pode é insumo no ponto de movimentação. Produto insumo é aquele que é utilizado por receitas, para fabricação de um outro produto.
+
+-	**Classe:** Simples
+-	**Domínio:** Booleano
+-	**Tamanho:** 
+-	**Obrigatório:** Não
+-	**Padrão:** FALSO
+-	**Mascara:**
+
+### indutor:
+Define se o produto é indutor no ponto de movimentação. Produto indutor, é aquele que alavanca vendas em um ponto de movimentação.
+
+-	**Classe:** Simples
+-	**Domínio:** Booleano
+-	**Tamanho:** 
+-	**Obrigatório:** Não
+-	**Padrão:** FALSO
+-	**Mascara:**
+
+### composto:
+Define se o produto é composto no ponto de movimentação. 
+
+-	**Classe:** Simples
+-	**Domínio:** Booleano
+-	**Tamanho:** 
+-	**Obrigatório:** Não
+-	**Padrão:** FALSO
+-	**Mascara:**
+
+
+
+# Planogramas
+
+__Descrição__
+
+Planograma é a representação grafica ou desenhada do posicionamento de um produto, do seu sortimento ou da sua categoria em uma determinada gondola, prateleira, expositor e outros.
+
+__Tabela__
+
+-   planogramas
+
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_interno:___
+Atributo responsável por garantir a unicidade do planograma.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_externo:___
+Código de controle gerado pelo usuário, caso haja. Quando não houver deverá ser igual ao código_interno.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___descricao:___
+Descrição do planograma
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 255
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+
+___ativo:___
+Atributo de identificação de Ativação / Inativação do registro.
+
+-	**Classe:** Simples
+-	**Domínio:** Booleano
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:** VERDADEIRO
+-	**Mascara:**
+
+
+# Produto Catálogo
+
+__Descrição__
+
+Um produto representa toda mercadoria que pode ser transitada na cadeia logística em que o sistema está implementado.
+
+__Atributos__
+
+___id___:
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_interno:___
+Atributo responsável por garantir a unicidade do produto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:**60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_externo:__
+Código de controle gerado pelo usuário, caso haja. Quando não houver deverá ser igual ao código_interno.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___nome:___
+Nome atribuído ao produto.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___preco_base:___
+Preço de cadastro do produto definido pelo fabricante.
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**#.##0,00
+
+___custo_base:___
+Caso produzido = CMV; caso adquirido = Custo de compra.
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**#.##0,00
+
+___shelflife:___
+Tempo de validade do produto em dias.
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___ativo:___
+Atributo de identificação de Ativação / Inativação do registro.
+
+-	**Classe:** Simples
+-	**Domínio:** Booleano
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:** VERDADEIRO
+-	**Mascara:**
+
+
+
+# Caderno Perdas
+__Descrição__
+
+Contém o histórico de fechamento de estoque de um ponto de movimentação.
+
+__Tabela__
+
+-   caderno_perdas
+
+__Atributos__
+
+___id___:
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_ponto\_movimentacao:___
+Define o ponto de movimentação vinculado ao registro.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_produto:___
+Define o produto vinculado ao registro.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___data:___
+Define a data da perda.
+
+-	**Classe:** Simples
+-	**Domínio:** Data
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:** 1
+-	**Mascara:**
+
+__valor\_perda:___
+Define o valor da perda.
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:** 
+-	**Mascara:**
+
+
+
+# Caderno Fechamento Estoque
+__Descrição__
+
+Contém o histórico de fechamento de estoque de um ponto de movimentação.
+
+__Tabela__
+
+-   caderno_fechamento_estoques
+
+__Atributos__
+
+___id___:
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_ponto\_movimentacao:___
+Define o ponto de movimentação vinculado ao registro.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_produto:___
+Define o produto vinculado ao registro.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___data:___
+Define a data na qual o fechamento se refere.
+
+-	**Classe:** Determinante
+-	**Domínio:** Data
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:** 1
+-	**Mascara:**
+
+___quantidade:___
+Define a quantidade do produto no seu fechamento.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:** 1
+-	**Mascara:**
+
+
+
+# Caderno Ajustes
+__Descrição__
+
+Contém o histórico de ajustes de estoque de um ponto de movimentação.
+
+__Tabela__
+
+-   caderno_ajustes
+
+__Atributos__
+
+___id___:
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_ponto\_movimentacao:___
+Define o ponto de movimentação vinculado ao registro.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_produto:___
+Define o produto vinculado ao registro.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___data:___
+Define a data na qual o ajuste se refere.
+
+-	**Classe:** Determinante
+-	**Domínio:** Data
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:** 1
+-	**Mascara:**
+
+___quantidade:___
+Define a quantidade ajustada do produto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:** 1
+-	**Mascara:**
+
+
+
+# Parametros Abastecimento
+
+__Descrição__
+
+Qualquer informação relevante para o abastecimento de um ponto de movimentação.
+
+__Tabela__
+
+-   parametros_abastecimento
+
+__Atributos__
+
+___id\_ponto\_movimentacao:___
+Atributo que define a identidade de uma entidade em seu grupo. Identificador do ponto de movimentação para a tabela de parametros de abastecimento, utilizando a Foreign Key, também como Primary Key.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___peso_minimo:___
+Peso mínimo de um pedido de reabastecimento.
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**
+
+___peso_maximo:___
+Peso máximo de um pedido de reabastecimento.
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**
+
+___valor_minimo:___
+Valor mínimo de um pedido de reabastecimento.
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**
+
+___valor_maximo:___
+Valor máximo de um pedido de reabastecimento.
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**
+
+___leadtime:___
+Leadtime de um pedido de reabasteciment. É o período entre o início de uma atividade, produtiva ou não, e o seu término.
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**
+
+
+___ativo:___
+Atributo de identificação de Ativação / Inativação do registro.
+
+-	**Classe:** Simples
+-	**Domínio:** Booleano
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:** VERDADEIRO
+-	**Mascara:**
+
+
+
+# Pontos Movimentação Semelhantes
+
+__Descrição__
+
+Permite que possa ser definido quem são os pontos de movimentação que se assemelham.
+
+__Tabela__
+
+-   pontos\_movimentacao\_semelhantes
+
+__Atributos__
+
+___id\_ponto\_movimentacao:___
+Define o ponto de movimentação que se enquadra referência para o semelhante.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_ponto\_movimentacao\_semelhante:___
+Define o ponto de movimentação que se enquanda como semelhante do ponto de movimentação de referência.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+# Clientes X Fornecedores
+
+__Descrição__
+
+Permite que possa ser definido quem são os pontos de movimentação clientes e fornecedores.
+
+__Tabela__
+
+-   clientes_X_fornecedores
+
+## Atributos
+
+___id_cliente:___
+Define o ponto de movimentação que se enquadra como cliente.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id_fornecedor:___
+Define o ponto de movimentação que se enquanda como fornecedor.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+
+
+# Arvore de Categoria de Pontos de Movimentação
+
+__Descrição__
+
+A arvore de categorias permite estruturar as categorias em níveis hierárquicos, possibilitando maior organização e flexibilidade na qualificação de pontos de movimentação. 
+Exemplo: (Próprio -> Sazonal; Próprio->Quiosque; etc. ...) 
+
+__Tabela__
+
+-   arvore\_categorias\_pontos\_movimentacao
+
+__Atributos__
+
+___id\_categoria\_pai:___
+Define a categoria pai do ponto de movimentação.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_categoria\_filho:___
+Define a categoria filha do ponto de movimentação.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+# Grupo de Categoria de Pontos de Movimentação
+
+__Descrição__
+
+O Grupo de categorias permite que um ponto de movimentação seja vinculado a mais de uma categoria.
+Exemplo: (Premium -> Cafeterias Premium -> Classe A)
+
+__Tabela__
+
+-   grupo\_categorias\_pontos_movimentacao
+ 
+__Atributos__
+
+___id\_categoria:___
+Define a categoria atribuída ao produto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_ponto\_movimentacao:___
+Define o ponto de movimentação a ser atribuído a categoria.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+
+
+# Categoria Ponto Movimentacao
+
+__Descrição__
+
+O Grupo de categorias permite que um ponto de movimentação seja vinculado a mais de uma categoria.
+Exemplo: (Premium -> Cafeterias Premium -> Classe A).
+
+__Tabela__
+
+-   categorias_pontos_movimentacao
+
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_interno:___
+Atributo responsável por garantir a unicidade da categoria do ponto de movimentação.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:**60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo\_externo:___
+Código de controle gerado pelo usuário, caso haja. Quando não houver deverá ser igual ao código_interno.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___nome:___
+Nome atribuído a categoria de ponto de movimentação.
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+
+# Ponto Movimentção
+
+__Descrição__
+
+Se enquadra como ponto de movimentação toda entidade que movimente produtos e faça parte da cadeia de suprimento ou abastecimento.
+Exemplo: (pdv, representante, centro de distribuição, fabrica, etc.) 
+
+__Tabela__
+
+-	pontos_movimentacao
+
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio**: Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo_interno:___
+Atributo responsável por garantir a unicidade do ponto de movimentação
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:**60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___codigo_externo:___
+Código de controle gerado pelo usuário, caso haja. Quando não houver deverá ser igual ao código_interno.
+
+-	**Classe:** Determinante
+-	**Domínio:** Texto
+-	**Tamanho:** 60
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___nome:___
+Nome atribuído ao ponto de movimentação
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___natureza:___
+Natureza atribuída ao ponto de movimentação, um enumerador, podendo ser:
+*	(Origem) Fornecedor – Pontos de movimentação que abastecem demais pontos;
+*	(Transbordo) Fornecedor e cliente – Pontos de movimentação que tem ambos comportamentos; 
+*	(Destino) Cliente – Pontos de movimentação que são abastecidos por demais pontos;
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:**
+-	**Mascara:**
+
+___ativo:___
+Atributo de identificação de Ativação / Inativação do registro.
+
+-	**Classe:** Simples
+-	**Domínio:** Booleano
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:** VERDADEIRO
+-	**Mascara:**
+
+
+
+
+# Caderno Recebimentos
+
+__Descrição__
+
+Contém o histórico de recebimentos dos produtos de um ponto de movimentação.
+
+__Tabela__
+
+-	caderno_recebimentos	
+
+__Atributos__
+
+___id:___
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_ponto\_movimentacao\_origem:___
+Define o ponto de movimentação vinculado ao registro.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id_produto:___
+Define o produto vinculado ao registro.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___data:___
+Define a data na qual o registro de recebimento se refere.
+
+-	**Classe:** Determinante
+-	**Domínio:** Data
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:** 1
+-	**Mascara:**
+
+___quantidade:___
+Define a quantidade recebida de determinado produto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:** 1
+-	**Mascara:**
+
+___custo_compra:___
+Define o custo de compra praticado naquele recebimento.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:** 1
+-	**Mascara:** #.##0,00
+
+
+
+# Caderno Vendas
+
+__Descrição__
+
+Contém o histórico de vendas de um ponto de movimentação.
+
+__Tabela__
+
+-   caderno_vendas
+
+__Atributos__
+
+___id___:
+Atributo que define a identidade de uma entidade em seu grupo, facilitando sua localização e relacionamento com demais elementos existentes no contexto.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_ponto\_movimentacao:___
+Define o ponto de movimentação vinculado ao registro.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___id\_produto:___
+Define o produto vinculado ao registro.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___data:___
+Define a data da venda.
+
+-	**Classe:** Simples
+-	**Domínio:** Data
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:** 1
+-	**Mascara:**
+
+__preco_venda:___
+Define o valor da venda.
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:**
+-	**Padrão:** 
+-	**Mascara:**
+
+
+
+#	Endereço
+
+__Descrição__
+
+Endereço de um ponto de movimentação.
+
+__Tabela__
+-	enderecos
+    
+__Atributos__
+
+___id\_ponto\_movimentacao:___
+Atributo que define a identidade de uma entidade em seu grupo. Identificador do ponto de movimentação para a tabela de endereço, utilizando a Foreign Key, também como Primary Key.
+
+-	**Classe:** Determinante
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Sim
+-	**Padrão:**
+-	**Mascara:**
+
+___logradouro:___
+Logradouro do ponto de movimentação
+
+-	**Classe:** Composto
+-	**Domínio:** Texto
+-	**Tamanho:** 255
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**
+
+___numero:___
+Número do ponto de movimentação
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 10
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**
+
+___complemento:___
+Complemento do endereço do ponto de movimentação
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**
+
+___bairro:___
+Bairro do endereço do ponto de movimentação
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**
+
+___cidade:___
+Cidade do endereço do ponto de movimentação
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 120
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**
+
+___cep:___
+CEP do endereço do ponto de movimentação
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 10
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**
+
+___unidade\_federativa:___
+CEP do endereço do ponto de movimentação
+
+-	**Classe:** Simples
+-	**Domínio:** Texto
+-	**Tamanho:** 10
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**
+
+___latitude:___
+Latitude do endereço do ponto de movimentação
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**
+
+___longitude:___
+Longitude do endereço do ponto de movimentação
+
+-	**Classe:** Simples
+-	**Domínio:** Numérico
+-	**Tamanho:**
+-	**Obrigatório:** Não
+-	**Padrão:**
+-	**Mascara:**

@@ -1,0 +1,659 @@
+#Caderno Movimentação
+Um caderno é uma informação temporal de movimento ou uma posição de estoque de um ponto de movimentação.
+
+__Atributos__
+
+- **produto**: Produto a quem pertence o registro no caderno.
+- **data**: Data do registro no caderno.
+- **quantidade**: Quantidade do produto registrado.
+
+__Funcionalidades__
+
+- **listarSerie()**: 
+- **listarMatriz()**: 
+- **fabricar()**: Utilizado para fabricar tipos cadernos.
+- **resumir()**: Retorna os registros em todos os cadernos pertencentes ao produto informado.
+
+
+#Caderno Vendas
+Um caderno de vendas contém o histórico de vendas dos produtos de um ponto de movimentação.
+
+__Atributos__
+
+- **preco_unitario**: Valor de venda de cada produto no ponto de movimentação.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Controle Ativação
+Uma entidade de controle de ativação tem a funcionalidade de indicar se uma determinada entidade vinculada está ativa ou desativa. Sua principal função é manter um histórico de todas as atividades de ativação e desativação da entidade vinculada.
+
+__Atributos__
+
+- **entidade**: Indica a entidade ativo ou desativa em questão.
+- **ativo**: Indica se a entidade relacionada está ativa.
+- **data_alteracao**: Indica a data de alteração entre os estados de ativação.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Entrega
+Uma entrega está agendada em uma agenda de entregas, e indica as datas e quantidades previstas de recebimentos de mercadorias no estoque do ponto de movimentação.
+
+__Atributos__
+
+- **data_entrega**: Data agendada para a entrega.
+- **pedido**: Uma ordem de abastecimento representada em um fluxo de abastecimento.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Item Planograma
+Um item de planograma é toda entidade que compõe um planograma com produtos e suas respectivas quantidades de exposição.
+
+__Atributos__
+
+- **quantidade_exposicao**: Indica a quantidade do produto que será exposta.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Planograma
+Um planograma é uma entidade que representa o estoque de exposição de um ponto de movimentação.
+
+__Atributos__
+
+Não há atributos especificos.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Parametros Abastecimento
+Um parametro de abastecimento possuí as caracteristicas de abastecimento do ponto de movimentação.
+
+__Atributos__
+
+- **peso_minimo**: Quantidade em kilogramas minima por pedido.
+- **valor_minimo**: Valor minimo a ser pago por pedido.
+- **faixas_peso**: 
+- **lead_time**: 
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Endereço
+Endereço do ponto de movimentação.
+
+__Atibutos__
+
+- **logradouro**: Descrição do logradouro do ponto de movimentação.
+- **numero**: Número do ponto de movimentação.
+- **complemento**: Complemento para o endereço do ponto de movimentação.
+- **bairro**: Bairro do ponto de movimentação.
+- **cidade**: Cidade do ponto de movimentação.
+- **unidade_federativa**: unidade federativa do ponto de movimentação.
+- **cep**: CEP do ponto de movimentação.
+- **latitude**: Latitude geografica do ponto de movimentação.
+- **longitude**: Longitude geografica do ponto de movimentação.
+
+__Funcionalidades__
+
+- **pesquisarGeolocalizacao()**: Utilizado para perquisar localização geografica do endereço do ponto de movimentação com base nos parâmetros passados.
+
+
+#Item Receita
+Os itens de uma receita são produtos insumos utilizados para confecção do produto final.
+
+__Atributos__
+
+- **proporcao**: Valor relativo a proporção utilizada de determinado produto em determinada receita.
+- **desvio**: Um valor que indica a quantidade em determinada unidade de medida que a proporção pode variar.
+- **unidade_medida**: Unidade utilizada para medir a quantidade do item.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Agenda Entregas
+Uma agenda de entregas contém entregas que por sua vez contém as datas e quantidades previstas de recebimentos de mercadorias no estoque do ponto de movimentação.
+
+__Atributos__
+
+Não há atributos especificos.
+
+__Funcionalidades__
+
+- **agendar()**: Utilizado para agendar uma entrega.
+
+
+#Caderno Ajuste
+Um caderno de ajustes contém o histórico de ajustes de estoque de um ponto de movimentação
+
+__Atributos__
+
+Não há atributos especificos.
+
+__Funcionalidades__
+
+- **calcular()**: Ultilizado para calcular o total de ajuste de estoque com base nos cadernos de vendas, recebimentos, descartes e fechamentos.
+
+
+#Caderno Perdas
+Um caderno de perdas contém o histórico de perdas de estoque de um ponto de movimentação.
+
+__Atributos__
+
+- **valor_unitario**: Valor de venda de cada produto no ponto de movimentação.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Produto
+Um produto representa toda mercadoria que pode ser transitada na cadeia logística em que o sistema está implementado. Todos os registros na entidade representam os produtos do ponto de movimentação.
+
+__Atributos__
+
+- **codigo_interno**: O código interno define de forma unívoca o produto.
+- **codigo_externo**: O código externo é um identificador alternativo para o produto.
+- **nome_base**: Nome do produto.
+- **categoria_padrao**: Descreve a principal categoria do produto. Pois um produto pode possuir um conjunto de categorias.
+- **preco_base**: Valor base de venda do produto.
+- **custo_base**: Valor base de produção do produto.
+- **shelflife_base**: 
+- **nivel_servico_local**: Valor utilizado para indicar a quantidade do produto para ajustes de estoque.
+- **preco_venda_local**: Valor de venda do produto no ponto de movimentação.
+- **custo_compra_local**: Valor de compra do produto para o ponto de movimentação.
+- **valor_estoque_local**: Utilizado para indicar o nivel do estoque do produto no ponto de movimentação.
+- **multiplo_entrada_local**: Multiplo utilizado para indicar a quantidade do produto que entra no ponto de movimentação.
+- **multiplo_saida_local**: Multiplo utilizado para indicar a quantidade do produto que sai do ponto de movimentação.
+- **estoque_minimo_local**: Valor que indica a quantidade minima do produto que deve ser mantida no ponto de movimentação.
+- **projetavel_local**: 
+- **correlacionavel_local**:
+- **comercializado_local**: Indica se o produto é comercializado no ponto de movimentação.
+- **insumo_local**: Indica se o produto é insumo de alguma receita do ponto de movimentação.
+- **indutor_local**: Indica se o produto é indutor de venda do ponto de movimentação.
+- **composto_local**: Indica se o produto é composto no ponto de movimentação.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Caderno PosicoesFechamentoEstoque
+Um caderno de fechamento de estoque contém o histórico de posição de fechamento de estoque de um ponto de movimentação.
+
+__Atributos__
+
+- valor_unitario: Valor de venda de cada produto no ponto de movimentação.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Caderno Recebimentos
+Um caderno de recebimentos contém o histórico de recebimentos dos produtos de um ponto de movimentação.
+
+__Atributos__
+
+- **custo_unitario**: Valor de compra de cada produto para o ponto de movimentação.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Receita
+Uma receita representa uma lista de fabricação de um produto em um ponto de movimentação dadas proporções de seus insumos.
+
+__Atributos__
+
+- **produto_final**: O produto final gerado pela receita.
+- **itens**: São produtos insumos para realizar a receita.
+- **lote_producao**: É a quantidade do produto final produzidas com uma receita.
+
+__Funcionalidades__
+
+- **atualizarProporcao()**: Utilizado para atualizar a proporção de determinado produto.
+- **fixar()**: Utilizado para tipificar uma receita como fixa.
+
+
+
+#Ponto de Movimentação
+Um ponto de movimentação é toda entidade que movimente produtos e faça parte da cadeia de suprimento ou rede de abastecimento.
+
+__Atributos__
+
+- **agentes**: São atores que atuam no ponto de movimentação. Ex: Promotores...
+- **codigo_interno**: A identidade de um ponto de movimentação é definida univocamente pelo seu código interno.
+- **codigo_externo**: O código externo do ponto de movimentação é um identificador alternativo.
+- **nome**: Nome do ponto de movimentação.
+- **categoria_principal**: Descreve a principal categoria do ponto de movimentação.
+- **fornecedores**: Uma lista de pontos de movimentação que são fornecedores.
+- **clientes**: Uma lista de pontos de movimentação que são clientes.
+
+__Funcionalidades__
+
+- **determinarProdutosIndutores()**: Determina os produtos do ponto de movimentação que são indutores de vendas.
+- **avaliarAtendimentoPlanograma()**: 
+- **ativar()**: Responsável por ativar um ponto de movimentação.
+- **desativar()**: Responsável por desativar um ponto de movimentação.
+- **listarHistoricoAtivacao()**: Lista todo o histórico de ativação e desativação do ponto de movimentação.
+- **confirmarRecebimento()**: Responsável por confirmar o recebimento de pedidos integralmente ou parcialmente.
+- **copiarHistoricoVendas()**: Cria uma cópia de todo o histórico de vendas de um ponto de movimentação para outro ponto de movimentação.
+- **conferirCoberturaPlanograma()**:
+- **listarFluxosAbastecimento()**: Utilizado para listar todos os fluxos de abastecimento vinculados ao ponto de movimentação.
+
+
+#Categoria Produto
+Uma categoria de produtos agrupa produtos utilizando determinado critério.
+
+__Atributos__
+
+- **codigo_interno**: O código interno define de forma unívoca a categoria de produtos.
+- **codigo_externo**: O código externo é um identificador alternativo para a categoria de produtos.
+- **nome**: Nome da categoria.
+- **categoria_pai**: Referencia à categoria pai.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Categoria Ponto Movimentação
+Uma categoria de pontos de movimentação agrupa pontos de movimentação utilizando determinado critério.
+
+__Atributos__
+
+- **codigo_interno**: O código interno define de forma unívoca a categoria de pontos de movimentação.
+- **codigo_externo**: O código externo é um identificador alternativo para a categoria de pontos de movimentação.
+- **nome**: Nome da categoria.
+- **categoria_pai**: Referencia à categoria pai.
+
+__Funcionalidades__
+
+- **adicionarPontoMovimentacao()**: Utilizado para adicionar um novo ponto de movimentação à categoria.
+- **excluirCategoriaMovimentacao()**: Utilizado para exclur um ponto de movimentação da categoria.
+
+
+#Categoria Produto
+Uma categoria de produto agrupa os produtos em departamentos distintos.
+
+__Atributos__
+
+- **codigo_interno**: O código interno de uma ordem de abastecimento define o documento de forma unívoca.
+- **codigo_externo**: O código externo da ordem de abastecimento é um identificador alternativo.
+- **nome**: Nome da categoria de produto.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Regra
+Uma regra descreve como o fluxo de abastecimento distribuirá suas ordens de abastecimento na cadeia logistica. É um formada por etapas contendo suas ordens e durações.
+
+__Atributos__
+
+- **etiqueta**: Nome dado ao conjunto de regras.
+- **criterio**: Nome dado a regra.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Item Ordem Abastecimento
+Um item de uma ordem de abastecimento representa um produto vinculado juntamento com sua quantidade e valor unitario em uma ordem de abastecimento.
+
+__Atributos__
+
+- **quantidade**: Indica a quantidade do produto vinculado.
+- **valor_unitario**: Indica o valor unitário do produto vinculado.
+
+__Funcionalidades__
+
+- **calcularValorTotal()**: Utilizado para calcular o valor total do produto vinculado, multiplicando o valor unitario pela quantidade.
+
+
+#Ordem Abastecimento
+Uma ordem de abastecimento é a representatividade de documentos de movimentação de mercadorias em uma cadeia de suprimentos.
+
+__Atributos__
+
+- **codigo_interno**: O código interno de uma ordem de abastecimento define o documento de forma unívoca.
+- **codigo_externo**: O código externo da ordem de abastecimento é um identificador alternativo.
+- **valor**: Valor total dos itens da ordem de abastecimento.
+- **representatividade**: 
+
+__Funcionalidades__
+
+- **replicar()**: Utilizado para replicar uma ordem de abastecimento em uma outra ordem de abastecimento.
+- **calcularValorTotal()**: Utilizado para calcular o valor total dos itens da ordem de abastecimento.
+
+
+#Fluxo Abastecimento
+Um fluxo de abstecimento representa o processo de abastecimento de um ponto de movimentação.
+
+__Atributos__
+
+- **codigo_interno**: O código interno define o fluxo de abastecimento de forma unívoca.
+- **codigo_externo**: O código externo do fluxo de abastecimento é um identificador alternativo.
+- **data_inicio**: Data de inicio da vigência do fluxo de abastecimento.
+- **data_termino**: Data de termino da vigência do fluxo de abastecimento.
+
+__Funcionalidades__
+
+- **gerar()**: Gera um novo fluxo de abastecimento de acordo com as regras definidas.
+- **projetarEtapas()**: Projeta todas as etapas do fluxo de abastecimento para determinada ordem de abastecimento.
+- **informarEtapas()**: Informa todas ordens de abastecimentos e todas as etapas em que estão inclusas.
+
+
+#Denominadores
+Um denominador é uma entidade que prove atributos de denominadores a interface iDenominavel.
+
+__Atributos__
+
+- **denominadores**: Um dicionario contendo os atributos e seus valores, formando um denominador.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Planejamento
+Uma previsão é toda entidade que indica a quantidade de determinado produto ou categoria de produtos planejados para determinado ponto de movimentação em uma data.
+
+__Atributos__
+
+- **quantidade_planejada**: Quantidade de produtos planejados.
+- **data_referencia**: Data da previsão.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Plano Venda
+Um plano de venda é toda entidade que possuí previsões de produtos para pontos de movimentações em determinada periodicidade.
+
+__Atributos__
+
+- **codigo_interno**: O código interno define de forma unívoca o plano de vendas.
+- **codigo_externo**: O código externo é um identificador alternativo para o plano de vendas.
+- **frenquencia**: 
+- **data_execucao**: Data de execução do plano de vendas.
+
+__Funcionalidades__
+
+- **gerar()**: Utilizado para gerar um plano de vendas.
+- **pagar()**: Utilizado para pegar um plano de vendas.
+- **enviarPorEmail()**: Utilizado para enviar plano de venda gerado por e-mail.
+
+
+#Campanha Marketing
+Uma campanha de marketing consiste em um conjunto de ações promocionais aplicada a uma cadeia logística em que o sistema está implementado, incluindo produtos relacionados e pontos de movimentação relacionados
+
+__Atributos__
+
+- **nome**: Nome da campanha de marketing.
+- **descricao**: Descrição da campanha de marketing.
+- **data_inicio**: Data de inicio da campanha de marketing.
+- **data_termino**: Data de termino da campanha de marketing.
+
+__Funcionalidades__
+
+- **vincularAcao()**: Uma campanha de marketing possuí ações de marketing. Este método é utilizado para vincular uma ação de marketing a uma campanha de marketing.
+
+
+#Perfil
+Um perfil é um tipo de caracterização do usuário em termos das funcionalidades a que ele tem acesso.
+
+__Atributos__
+
+- **nome**: Nome do perfil.
+- **funcionalidade**: Define as funcionalidades que o usuário pode ter dentro da plataforma.
+
+
+__Funcionalidades__
+
+- **incluirFuncionalidade()**: Utilizado para atribuir uma nova funcionalidade ao usuário.
+
+
+#Funcionalidades
+Uma funcionalidade representa um tipo de ação permitida no sistema. Um usuário pode realizar todas as funcionalidades de todos os seus perfis.
+
+__Atributos__
+
+- **nome**: Nome da funcionalidade.
+- **codigo_interno**: O código interno de uma ordem de abastecimento define o documento de forma unívoca.
+- **codigo_externo**: O código externo da ordem de abastecimento é um identificador alternativo.
+- **descricao**: Descrição da funcionalidade.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Usuário
+Um usuário é todo ator que interage diretamente com a plataforma.
+
+__Atributos__
+
+- **login**: Define uma descrição textual e unívoca do usuário.
+- **senha**: Define uma palavra passe do usuário.
+- **perfil**: Vincula o usuário a um tipo de perfil.
+
+__Funcionalidades__
+
+- **vincularPerfil()**: Utilizado para vincular um usuário a um tipo de perfil.
+- **resetarSenha()**: Utilizado para Redefinir a palavra passe do usuário, caso o mesmo a tenha perdido ou desejar altera-la.
+- **incluirFoto()**: Utilizado para vincular uma foto ao usuário.
+
+
+#Propaganda
+Uma propaganda é uma ação de marketing vinculada a um tipo de mídia, seja ela televisão, radio, jornal...
+
+__Atributos__
+
+- **orcamento**: Indica o montante de recursos empregados na propaganda.
+
+__Funcionalidades__
+
+- **vincularQualidade()**: Utilizado para vincular uma propaganda a uma qualidade. A qualidade de uma propaganda pode ser definida em termos de TRPs (target rating points) ou em termos de Copy Testing.
+
+
+#Bonificação
+Uma bonificação é uma ação de marketing que premia o consumidor que comprir os requisitos da bonificação.
+
+__Atributos__
+
+- **valor_minimo**: Indica o mínimo que deve ser comprado para que o consumidor seja bonificado.
+- **valor_adicional**: Indica a quantidade adicional de recursos que deve ser desembolsada para que o consumidor receba a bonificação.
+- **valor_premio**: Indica o valor da total do premio que é bonificado.
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Kit
+Um kit é uma ação de marketing que é composta por um conjunto de produtos, resultando em um desconto sobre o valor do conjunto.
+
+__Atributos__
+
+- **nome**: Nome do kit.
+- **preco_total**: Valor do kit.
+- **desconto_efetivo**: Diferença entre o valor do kit e a soma dos valores de todos os produtos que o integram.
+
+__Funcionalidades__
+
+- **vincular()**: Utilizado para vincular um produto ao kit.
+
+
+#Ação Marketing
+As ações de marketing vinculadas a uma campanha de marketing são o conjunto de ações promovidas simultaneamente na cadeia logística em que o sistema está implantado.
+
+__Atributos__
+
+Não há atributos especificos.
+
+__Funcionalidades__
+
+- **fabricar()**: Utilizado para fabricar uma ação de marketing do tipo kit, bonifição ou propaganda.
+
+
+#Entidade
+Representa qualquer entidade que interaja com as interfaces e entidades aqui descritas.
+
+__Atributos__
+
+Não descrito.
+
+__Funcionalidades__
+
+Não descrito.
+
+
+#Objeto BD
+Um objeto bd possui metodos e atributos referentes ao banco de dados. Possui por exemplo metodos CRUD.
+
+__Atributos__
+
+Não há atributos especificos.
+
+__Funcionalidades__
+
+- **pegar()**: Responsável por consultar uma informação no banco de dados.
+- **listar()**: Responsável por consultar uma coleção de informações no banco de dados.
+- **adicionar()**: Responsável por adicionar informações no banco de dados.
+- **persistir()**: Responsável por persistir informaçãoes no banco de dados. Diferente do metodo adicionar...
+- **ativar()**: Utilizado para ativar determinado registro de uma entidade.
+- **desativar()**: Utilizado para desativar determinado registro de uma entidade.
+- **atualizar()**: Responsável por atualizar informações no banco de dados.
+- **excluir()**: Responsável por excluir alguma informação do banco de dados.
+
+
+#Log de Eventos
+Um log de evento é toda entidade que consiga fornecer descrições para os registros de iInspecionavel.
+
+__Atributos__
+
+- **descricao**: Descrição de cada log registrado no iInspecionavel.
+
+
+__Funcionalidades__
+
+Não há metodos especificos.
+
+
+#Objeto TEVEC
+Um objeto tevec tem como objetivo fornecer metodos e atributos comuns entre entidades.
+
+__Atributos__
+
+- **codigo_interno**: O código interno define de forma unívoca os registros de uma entidade.
+- **codigo_externo**: O código externo é um identificador alternativo para a entidade.
+
+__Funcionalidades__
+
+- **ativo()**: Verifica se um registro de determinada entidade esta ativo.
+- **copiar()**: Cria uma copia idêntica de um registro de determinada entidade.
+- **comparar()**: Compara o conteudo de dois registro de uma mesma entidade.
+- **exportarJSON()**: Exporta o conteudo de um registro ou uma coleção de registros de determinada entidade para o formato JSON.
+- **exportarXML()**: Exporta o conteudo de um registro ou uma coleção de registros de determinada entidade para o formato XML.
+- **exportarTexto()**: Exporta o conteudo de um registro ou uma coleção de registros de determinada entidade para o formato Texto.
+- **exportarURI()**: Exporta o conteudo de um registro ou uma coleção de registros de determinada entidade para o formato URI.
+- **exportarBinario()**: Exporta o conteudo de um registro ou uma coleção de registros de determinada entidade para o formato Binario.
+- **exportarDataFrame()**: Exporta o conteudo de um registro ou uma coleção de registros de determinada entidade para o formato Data Frame.
+
+
+#iInspecionavel <interface>
+A entidade que implementar iInspecionavel terá a funcionalidade de criar momentos no tempo para auditoria futura.
+
+
+#iDenominavel <interface>
+A entidade que implementar iDenominavel terá a funcionalidade de adicionar denominadores.
+
+
+#iDenominavel
+A interface iDenominavel prove atributos e funcionalidades de denominadores para a entidade que a implementar.
+
+__Funcionalidades__
+
+- **adicionar()**: Utilizado para adicionar um novo denominador.
+
+
+#iColecionavel <interface>
+A interface iColecionavel prove caracteristicas de coleção para a entidade que a implementar.
+
+
+__Funcionalidades__
+
+- **adicionar()**: Utilizado para adicionar uma nova coleção de itens.
+- **atualizar()**: Utilizado para atualizar uma coleção de itens.
+- **excluir()**: Utilizado para excluir uma coleção de itens.
+- **listar()**: Utilizado para consultar uma coleção de itens.
+
+
+#iInspecionavel <interface>
+A interface iInspecionavel prove recursos para inspeção futura.
+
+
+__Funcionalidades__
+
+- **adicionar()**: Utilizado para adicionar um novo registro de log.
+
+
+#enumTipoEtapa <enumerador>:
+Enumerador utlizado para indicar o tipo da etapa. O tipo de uma etapa é sua representatividade para o nucleo de negócio.
+
+- **sugestao**: Sugestão.
+- **pedido**: Pedido.
+- **faturamento**: Faturamento.
+- **entrega**: Entrega.
+
+
+#enumMotivos <enumerador>
+Enumerador utilizado para enumerar os motivos dos registros de iInspecionavel.
+
+...
+
+
+#enumTipoEntidade <enumerador>
+Enumerador utilizado para indicar o tipo de entidade vinculada ao controle de ativação.
+
+- **PontoMovimentacao**: Ponto de movimentação.
+- **Produto**: Produto.
+- **Planograma**: Planograma.
+- **CampanhasMarketing**: Campanha de maketing.
+
+
+#enumTipoRecita <enumerador>
+Enumerador utilizado para tipificar uma receita. Uma receita pode ser fixa ou variavel.
+
+- **fixa**: Não pode ser alterada.
+- **variavel**: Pode ser alterada.
+
+
+#enumNaturezaPontoMovimentacao <enumerador>
+Enumerador utilizado para atribuir uma natureza a um ponto de movimentação.
+
+- **origem**: (fornecedor) Indica que um ponto de movimentação é a origem na cadeia logistica.
+- **transbordo**: (fornecedor e cliente) Indica que um ponto de movimentação é o tranbordo na cadeia logistica. Tranbordo é o termo utilizado para indicar que um ponto de movimentação é um intermediario entre a origem e o destino.
+- **destino**: (cliente) Indica que um ponto de movimentação é o destino na cadeia logistica.

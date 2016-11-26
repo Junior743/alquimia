@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Gerador de documentação</title>
+        <!-- estilos -->
+        <link href="css/index.css" rel="stylesheet" />
+        <!--<link href="css/bootstrap/css/bootstrap.css" rel="stylesheet">-->
+
+    </head>
+
+    <body ng-app="app">
+        <header></header>
+        <article>
+
+            <!-- TODO:
+                * criar sumario
+                * criar validacoes para o formulario
+                * conferir tamanho correto para o range da dificuldade
+                * deve ser desenhado um formulário diferente de acordo com a camada selecionada
+                * travar textArea para que o mesmo não possam editar suas medidas
+                * layout quebrando horizontalmente
+                * verificar se vai ser possivel subir imagem para o fresh (site de documentacao)
+                
+                Nota:
+                * melhor sem bootstrap, economia de codigo
+                * Em vez de utilizar textArea compensa utilizar divEditavel?
+            -->
+
+            <form action="#">
+                <section>
+                    <label for="txtareaIntroducao"><h3 class="secao">INTRODUÇÃO </h3></label>
+                    <p>
+                        <div contenteditable>Insira o texto aqui...</div>
+                    </p>
+                </section>
+                
+                <section>
+                    <h3 class="secao">GLOSSÁRIO DOS TERMOS </h3>
+                    <section class="grupo">
+                        <input type="text" placeholder="Termo">
+                        <input type="text" placeholder="Descrição" large>
+                        <div class="centralizarEmColuna"><button>Adicionar item</button></div>
+
+                        <h3 ng-repeat="">{{contador_indice_glossario}} - {{termo}} - {{descricao}}</h3>
+                    </section>
+                    
+                </section>
+                
+                <section>
+                    <h3 class="secao">REGRAS DE NEGÓCIO </h3>
+                    <h3 class="titulo">Detalhes</h3>
+                    <section class="grupo">
+                        <p><input type="text" placeholder="Nome da solicitação"></p>
+                        <p><input type="text" placeholder="Nome do elaborador"></p>
+                        <!-- data de criação do documento - utilizar datepicket -->
+                        
+                        <p>
+                            <input type="text" placeholder="Nome do projeto envolvido">
+                            <button>Adicionar item</button>
+                            <div><h5>{{valor}}</h5><button class="btnExcluir" ng-show="false">Excluir item</button></div>
+                        </p>
+
+                        <p>
+                            <input type="text" placeholder="Nome da branch">
+                            <button>Adicionar item</button>
+                            <div><h5>{{valor}}</h5><button class="btnExcluir" ng-show="false">Excluir item</button></div>
+                        </p>
+                    </section>
+                    
+
+
+                    <!-- prazo do projeto - utilizar datepicket -->
+
+
+
+
+                    <section class="grupo">
+                        <h5 class="subtitulo">Dificuldade: </h5>
+                        <input type="range" min="0" max="10">
+                    </section>
+
+                    <section class="grupo">
+                        <h5 class="subtitulo">Prioridade: </h5>
+                        <div class="radioGrupoEmLinha">
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioPrioridade"><h5> Alta</h5></div>
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioPrioridade" checked><h5> Média</h5></div>
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioPrioridade"><h5> Baixa</h5></div>
+                        </div>
+                    </section>
+                    
+                    <section class="grupo">
+                        <h5 class="subtitulo">Complexidade: </h5>
+                        <div class="radioGrupoEmLinha">
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioComplexidade"><h5> Alta</h5></div>
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioComplexidade" checked><h5> Média</h5></div>
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioComplexidade"><h5> Baixa</h5></div>
+                        </div>
+                    </section>
+
+                    <section class="grupo">
+                        <h5 class="subtitulo">Camada: </h5>
+                        <div class="radioGrupoEmColuna">
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioCamada" ng-click=""><h5> Front-end</h5></div>
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioCamada" ng-click="" checked><h5> Back-end</h5></div>
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioCamada" ng-click=""><h5> Serviços</h5></div>
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioCamada" ng-click=""><h5> Banco de Dados</h5></div>
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioCamada" ng-click=""><h5> Outra</h5></div>
+                        </div>
+                    </section>
+
+                    <section class="grupo">
+                        <h5 class="subtitulo">Motivo: </h5>
+                        <div class="radioGrupoEmColuna">
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioMotivo"><h5> Nova característica</h5></div>
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioMotivo"><h5> Alterar característica</h5></div>
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioMotivo"><h5> Remover característica</h5></div>
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioMotivo" checked><h5> Novo projeto</h5></div>
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioMotivo"><h5> Novo componente</h5></div>
+                            <div class="radioOpcaoEmLinha"><input type="radio" name="radioMotivo"><h5> Outro</h5></div>
+                        </div>
+                    </section>
+
+                    <p>
+                        <label for="txtareaObjetivo"><h3 class="titulo">Objetivo </h3></label>
+                        <p>
+                            <div contenteditable>Insira o texto aqui...</div>
+                        </p>
+                    </p>
+
+                    <p>
+                        <label for="txtareaSolicitacao"><h3 class="titulo">Solicitação </h3></label>
+                        <p>
+                            <div contenteditable>Insira o texto aqui...</div>
+                        </p>
+                    </p>
+
+                    <p>
+                        <h3 class="titulo">Mapa conceitual </h3>
+                        <section class="grupo">
+                            <input type="file" accept="image/*">
+                        </section>
+                    </p>
+
+                    <p>
+                        <label for="txtareaCenarioAtual"><h3 class="titulo">Cenário atual </h3></label>
+                        <p>
+                            <div contenteditable>Insira o texto aqui...</div>
+                        </p>
+                    </p>
+                    
+                    <p>
+                        <h3 class="titulo">Requisitos funcionais </h3>
+                        <section class="grupo">
+                            <div class="centralizarEmLinha">
+                                <input type="text" placeholder="Requisito funcional">
+                                <input type="text" placeholder="Descricao">
+                                <input type="text" placeholder="Caso de uso">
+                            </div>
+                            <div class="centralizarEmColuna"><button>Adicionar item</button></div>
+                            <div><h5>{{valor}}</h5><button class="btnExcluir" ng-show="false">Excluir item</button></div>
+                        </section>
+                    </p>
+
+                    <p>
+                        <h3 class="titulo">Requisitos não funcionais </h3>
+                        <section class="grupo">
+                            <div class="centralizarEmLinha">
+                                <input type="text" placeholder="Requisito não funcional">
+                                <input type="text" placeholder="Descricao" large>
+                            </div>
+                            <div class="centralizarEmColuna"><button>Adicionar item</button></div>
+                            <div><h5>{{valor}}</h5><button class="btnExcluir" ng-show="false">Excluir item</button></div>
+                        </section>
+                    </p>
+
+                    <p>
+                        <label for="txtareaUsabilidade"><h3 class="titulo">Usabilidade </h3></label>
+                        <p>
+                            <div contenteditable>Insira o texto aqui...</div>
+                        </p>
+                    </p>
+
+                    <p>
+                        <h3 class="titulo">Plano de implantação </h3>
+                        <section class="grupo">
+                            <input type="number" placeholder="Fase">
+                            <input type="text" placeholder="Objetivo" large>
+                            <p>
+                                <h5 class="subtitulo">Prioridade: </h5>
+                                <div class="radioGrupoEmLinha">
+                                    <div class="radioOpcaoEmLinha"><input type="radio" name="radioPIPrioridade"><h5> Alta</h5></div>
+                                    <div class="radioOpcaoEmLinha"><input type="radio" name="radioPIPrioridade" checked><h5> Média</h5></div>
+                                    <div class="radioOpcaoEmLinha"><input type="radio" name="radioPIPrioridade"><h5> Baixa</h5></div>
+                                </div>
+                            </p>
+                            <div class="centralizarEmColuna"><button>Adicionar item</button></div>
+                            <div><h5>{{valor}}</h5><button class="btnExcluir" ng-show="false">Excluir item</button></div>
+                        </section>
+                    </p>
+
+                    <p>
+                        <label for="txtBiblioteca"><h3 class="titulo">Biblioteca </h3></label>
+                        <section class="grupo">
+                            <input type="url" name="txtBiblioteca" placeholder="Link" large>
+                            <div class="centralizarEmColuna"><button>Adicionar item</button></div>
+                            <div><h5>{{valor}}</h5><button class="btnExcluir" ng-show="false">Excluir item</button></div>
+                        </section>
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="secao">ESPECIFICAÇÃO TÉCNICA </h3>
+
+                    <p>
+                        <label for="txtRegras"><h3 class="titulo">Regras </h3></label>
+                        <section class="grupo">
+                            <input type="text" name="txtRegras" placeholder="Regra">
+                            <button>Adicionar item</button>
+                            <div><h5>{{valor}}</h5><button class="btnExcluir" ng-show="false">Excluir item</button></div>
+                        </section>
+                    </p>
+
+                    <p>
+                        <label for="txtRestricoes"><h3 class="titulo">Restrições </h3></label>
+                        <section class="grupo">
+                            <input type="text" name="txtRestricoes" placeholder="Restrição">
+                            <button>Adicionar item</button>
+                            <div><h5>{{valor}}</h5><button class="btnExcluir" ng-show="false">Excluir item</button></div>
+                        </section>
+                    </p>
+
+                    <p>
+                        <label for="txtFuncionalidades"><h3 class="titulo">Funcionalidades </h3></label>
+                        <section class="grupo">
+                            <p>
+                                <input type="text"  name="txtFuncionalidades" placeholder="Funcionalidade">
+                                <p><textarea name="txtareaFuncionalidades" id="txtareaFuncionalidades" cols="30" rows="5" placeholder="Descreva a funcionalidade..."></textarea></p>
+                                <button>Adicionar item</button>
+                                <div><h5>{{valor}}</h5><button class="btnExcluir" ng-show="false">Excluir item</button></div>
+                            </p>
+                        </section>
+                    </p>
+
+                    <p>
+                        <label for="txtEstrutura"><h3 class="titulo">Estrutura </h3></label>
+                        <br>
+                        <p>
+                            <div small contenteditable>Insira o texto aqui...</div>
+                        </p>
+                    </p>
+
+                </section>
+            </form>
+        </article>
+        <footer></footer>
+        
+        <!-- scripts -->
+        <script src="js/index.js"></script>
+        <script src="js/angular/angular-1.5.6/angular.js"></script>
+        <script src="js/angular/gerador.js"></script>
+    </body>
+
+</html>

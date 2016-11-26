@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Alterar Senha</title>
+
+        <!-- links -->
+        <link href="css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+        <link href="css/index.css" rel="stylesheet" />
+        
+
+    </head>
+    <body ng-app="AlterarSenha">
+        <article class="panel panel-body container" ng-controller="EnviaTokenController">
+            <form name="userForm" action="#" class="form-group">
+                <input class="form-control" type="email" name="email" ng-model="user.email" placeholder="E-mail" autofocus required />
+                <p class="help-block" ng-show="userForm.email.$invalid && !userForm.email.$pristine">O e-mail está incorreto</p>
+                <br />
+                <button class="btn btn-primary" ng-click="EnviarToken()">Enviar</button>
+            </form>
+            
+        </article>
+
+        <!-- scripts -->
+        <script type="text/javascript" src="js/angular/angular.js"></script>
+        <script type="text/javascript" src="js/angular/angular-ui-router.js"></script>
+        <script type="text/javascript" src="js/angular/angular-animate.js"></script>
+        <script type="text/javascript" src="js/angular/angular-md5.js"></script>
+        <script type="text/javascript" src="js/ui-bootstrap-tpls-1.3.3.js"></script>
+        <script type="text/javascript" src="js/controller.js"></script>
+
+    </body>
+</html>

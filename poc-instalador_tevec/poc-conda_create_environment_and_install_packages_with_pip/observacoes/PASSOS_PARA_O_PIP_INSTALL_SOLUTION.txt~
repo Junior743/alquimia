@@ -1,0 +1,25 @@
+PASSOS PARA O PIP INSTALL SOLUTION
+1 - Atualizar o conda - command: conda update conda-env
+2 - Rodar arquivo environment.yml- command: conda env update -f environment.yml / conda env create -f environment.yml / conda env update environment.yml / conda env update environment.yml
+
+4 - Para subir as tags para o github - command: git push --tags
+5 - conda create -h or conda update -h para mais informacoes
+
+
+NOVOS PASSOS:
+1 - conda install conda-build - PARA INSTALAR O CONDA-BUILD
+2 - conda upgrade conda - ATUALIZANDO PARA ULTIMA VERSAO
+3 - conda upgrade conda-build - ATUALIZANDO PARA ULTIMA VERSAO
+4 - conda skeleton pypi pyinstrument - CRIANDO UM DIRETORIO PARA O PACOTE (PARAMETRO 1 - HOSTING LOCATION. PARAMETRO 2 - NOME DO PACOTE)
+5 - conda build pyinstrument - PARA CRIAR O PACOTE
+
+
+
+NOVOS PASSOS:
+Automatic configuration from Travis CI
+
+We recommend using the Travis profile page at https://travis-ci.org/profile to manage your hooks.
+For private repositories, use https://travis-ci.com/profile.
+Travis CI Status
+
+Travis CI status page: http://status.travis-ci.com

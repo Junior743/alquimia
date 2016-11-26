@@ -1,0 +1,14 @@
+PASSOS PARA O PIP INSTALL SOLUTION
+1 - Atualizar o conda - command: conda update conda-env
+2 - Rodar arquivo environment.yml- command: conda env update -f environment.yml / conda env create -f environment.yml / conda env update environment.yml / conda env update environment.yml
+
+4 - Para subir as tags para o github - command: git push --tags
+5 - conda create -h or conda update -h para mais informacoes
+
+
+NOVOS PASSOS:
+1 - conda install conda-build
+2 - conda upgrade conda
+3 - conda upgrade conda-build
+4 - conda skeleton pypi pyinstrument
+5 - conda build pyinstrument - PARA CRIAR O PACOTE

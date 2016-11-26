@@ -1,0 +1,49 @@
+Funcionalidades:
+
+1. Caso eu tenha uma versão dos pacotes python
+mais recentes do que a versão usada no strike, o
+que vai ocorrer? Ele vai dar um downgrade nas
+minhas bibliotecas?
+
+2. O que significa ambiente python ativo?
+Necessariamente eu preciso ter um ambiente
+separado do meu ambiente root? Caso eu não queira
+usar um activate pytevec por exemplo e decida
+instalar tudo no 'python root'. Isso consta como
+um ambiente?
+
+3. Precisamos utilizar necessariamente o conda
+como manager de pacotes do Python? A partir desse
+ponto temos como regra de negocio o uso desse
+gerenciador? Pois é possivel fazer tudo apenas com
+o pip.
+
+4. O que ocorre com meus pacotes mais atualizados
+do que as versões utilizadas no Strike quando eu
+mandar atualizar o Strike para uma versão mais
+atual? Vou sofrer o downgrade nos meus pacotes do
+ambiente? 
+
+
+Dúvidas:
+
+1. Como eu vou inserir minhas senhas do git para
+instalar os pacotes? Vou encontrar um PROMPT
+quando o pip tentar instalar e não conseguir por
+ser um repositório privado? 
+
+
+2. Assim como nas máquinas da Amazon, cada cliente
+tem um ambiente pois não é necessario para a CRM
+ter instado uma biblioteca de webservice da
+Wickbold. Nesse desenho apresentado, como essa
+situação é tratada?
+
+
+3. Caso o cliente danone precise de uma versão
+diferente do Strike do que o cliente crm. (Não é
+ideal que isso ocorra, mas pensando do ponto de
+vista que isso vai uma hora ou outra acontecer)
+como que eu faço esse desacoplamento sendo que eu
+desejo trabalhar com apenas um ambiente TEVEC?
+

@@ -1,0 +1,39 @@
+h3 {
+    position: relative;
+}
+
+#accordion {
+    display: block;
+    width: 100%;
+    height: 800px;
+    border: thick solid #111;
+    overflow: scroll;
+}
+
+.elementoPai {
+    position: relative;
+    margin-top: 400px;
+}
+
+.button { cursor: pointer; }
+
+.ui-accordion-content {
+    height: auto !important;
+}
+
+.headAccordionFixo {
+    position: absolute !important;
+    color: white !important;
+    width: 100% !important;
+    height: 50px !important;
+    background-color: #111 !important;
+
+    transition-duration: 0.5s;
+    transition-property: background-color;
+    transition-timing-function: ease;
+}
+
+.headAccordionDesafixo {
+    /*position: static;
+    background-color: #ccc;*/
+}

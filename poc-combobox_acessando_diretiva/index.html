@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>POC - Combobox acessando diretiva</title>
+
+        <!-- estilos -->
+        <link href="css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+        <link href="css/index.css" rel="stylesheet" />
+    </head>
+
+    <body ng-app="App">
+        
+        <article>
+            <div diretiva-acessar>
+                <form action="#">
+                    <input type="text" />
+                    <!--<button>Botão dentro da diretiva</button>-->
+                    <button ng-click="Entrar()">Botão dentro da diretiva</button>
+
+                    <br /><br />
+                    
+                    <!--<select>
+                        <option value="volvo">Volvo</option>
+                        <option value="saab" selected>Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select> -->
+
+                    <select ng-click="EntrarEmOutraFuncao()">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab" selected>Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </form>
+            </div>
+
+            <div>
+                <button ng-click="Entrar()">Botão fora da diretiva</button>
+            </div>
+        </article>
+
+        <!-- scripts -->
+        <script src="js/angular/angular-1.5.6/angular.js"></script>
+        <script src="js/angular/angular-1.5.6/angular-ui-router.js"></script>
+        <script src="js/angular/angular-1.5.6/angular-animate.js"></script>
+        <script src="js/angular/ui-bootstrap-tpls-1.3.3.min.js"></script>
+        <script src="js/angular/controllerPrincipal.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>

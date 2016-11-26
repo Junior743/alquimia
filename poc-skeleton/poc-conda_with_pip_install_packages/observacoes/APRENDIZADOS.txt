@@ -1,0 +1,5 @@
+APRENDIZADOS:
+1 - pip
+2 - conda
+3 - gerenciadores de ambientes python. Ex: miniconda
+4 - eggs do python

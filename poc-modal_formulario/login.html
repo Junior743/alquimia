@@ -1,0 +1,21 @@
+<form name="userForm" action="#" novalidate>
+    <!-- E-mail -->
+    <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+        <input type="email" class="form-control" id="email" name="email" placeholder="E-mail" ng-model="user.email" autofocus required />
+        <p class="help-block" ng-show="userForm.email.$invalid && !userForm.email.$pristine">O e-mail está incorreto</p>
+        <!-- VALIDAR O EMAIL TAMBÉM -->
+    </div>
+
+    <!-- Senha -->
+    <div class="form-group" ng-class="{ 'has-error' : userForm.senha.$invalid && !userForm.senha.$pristine }">
+        <input type="password" class="form-control" id="senha" name="senha" pattern="[0123456789]+|[A-Z]+|[a-z]+|[@|#|$|%|&|*|!]+" ng-model="user.senha" ng-minlength="8" ng-maxlength="12" placeholder="Senha" required />
+        <p class="help-block" ng-show="userForm.senha.$invalid && !userForm.senha.$pristine">A senha é obrigatória</p>
+        <p ng-show="userForm.senha.$error.minlength" class="help-block">A senha tem que ter no mínimo 8 caracteres.</p>
+        <p ng-show="userForm.senha.$error.maxlength" class="help-block">a senha tem que ter no máximo 12 caracteres.</p>
+        <!-- VALIDAR O PATTERN TAMBÉM -->
+    </div>
+
+    <!-- Botão -->
+    <button class="btn btn-primary col-md-5" ng-disabled="userForm.$invalid">Acessar</button>
+    <a href="#" class="col-md-7" ui-sref="confirma_email">Esqueci minha senha</a>
+</form>

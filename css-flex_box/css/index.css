@@ -1,0 +1,19 @@
+nav {
+    position: fixed;
+    width: 99%;
+    height: 50px;
+    background-color: #333;
+    z-index: 1001;
+}
+
+nav ul {
+    display: flex !important;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav ul li {
+    list-style: none;
+    background-color: #ccc;
+    color: #111;
+}

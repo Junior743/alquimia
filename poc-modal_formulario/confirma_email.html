@@ -1,0 +1,12 @@
+<section class="sectionForm">
+    <p><button class="btn btn-default" ui-sref="login"><span class="glyphicon glyphicon-circle-arrow-left"></span></button></p>
+{{email}}
+    <form name="rsUserForm" novalidate ng-submit="">
+        <div class="form-group" ng-class="{ 'has-error' : rsUserForm.rsEmail.$invalid && !rsUserForm.rsEmail.$pristine }">
+            <input type="email" class="form-control" id="rsEmail" name="rsEmail" value="{{email}}" ng-model="user.rsEmail" placeholder="Digite seu e-mail" autofocus required />
+            <p class="help-block" ng-show="rsUserForm.rsEmail.$invalid && !rsUserForm.rsEmail.$pristine">O e-mail é obrigatório para recuperar sua senha.</p>
+        </div>
+    </form>
+
+    <button class="btn btn-primary col-md-5" ng-disabled="rsUserForm.$invalid" ng-click="EnviarToken()">Enviar</button>
+</section>

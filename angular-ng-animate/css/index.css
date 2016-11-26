@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+article {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 200px;
+    float: unset;
+}
+
+.content-area {
+    border: 1px solid black;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.sample-show-hide {
+    display: block;
+    transition: all linear 0.5s;
+}
+
+.sample-show-hide.ng-hide {
+    /*opacity: 0;*/
+}
+
+.displayNone {
+    display: none !important;
+}
+
+.displayBlock {
+    display: block;
+}
+
+.opacidadeZero {
+    opacity: 0;
+}
+
+.opacidadeCem {
+    opacity: 100;
+}

@@ -1,0 +1,2 @@
+FAZER:
+1 - Testar se tags no github podem ter o conteudo subscrito.

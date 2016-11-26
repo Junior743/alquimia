@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>POC - Angularjs ng-animate</title>
+
+        <link href="css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+        <link href="css/index.css" rel="stylesheet" />
+    </head>
+
+    <body ng-app="app" ng-controller="controllerAnimacao">
+        <article>
+            <button class="btn btn-primary" ng-click="esconderConteudo()">Esconder Texto</button>
+            </br>
+            </br>
+            </br>
+            <h3 class="content-area sample-show-hide">Olá, eu sou um texto, e vou me esconder se você clicar no botão</h3>
+        </article>
+
+        <!--<article>
+            <button class="btn btn-primary" ng-click="esconderConteudo()">Esconder Texto</button>
+            </br>
+            </br>
+            </br>
+            <h3 class="content-area sample-show-hide" ng-show="esconder">Olá, eu sou um texto, e vou me esconder se você clicar no botão</h3>
+        </article>-->
+        
+        <!-- scripts -->
+        <script src="js/angular/angular-1.5.6/angular.js"></script>
+        <script src="js/angular/angular-1.5.6/angular-animate.js"></script>
+        <script src="js/angular/angularControllers.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>

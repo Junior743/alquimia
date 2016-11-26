@@ -1,0 +1,1 @@
+http://docs.pylonsproject.org/projects/pyramid/en/latest/quick_tutorial/requirements.html#create-a-project-directory-structure
