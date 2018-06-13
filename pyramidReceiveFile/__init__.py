@@ -9,8 +9,8 @@ if __name__ == '__main__':
         config.add_route('products', '/products')
         config.add_route('product', '/products/{code_process}')
 
-        config.add_view(ViewProduct.view_process, route_name='products', request_method="POST")
-        config.add_view(ViewProduct.view_get_result, route_name='product', request_method="GET")
+        config.add_view(ViewProduct.process, route_name='products', request_method="POST")
+        config.add_view(ViewProduct.get_result, route_name='product', request_method="GET")
         app = config.make_wsgi_app()
 
     server = make_server('0.0.0.0', 8580, app)

@@ -1,12 +1,19 @@
+from pyramid.httpexceptions import HTTPNotImplemented
 from controllers import ControllerProduct
+from utils import enContentType
 
 
 class ViewProduct(object):
 
     @classmethod
-    def view_process(cls, request):
-        return ControllerProduct.controller_process(request)
+    def process(cls, request):
+        if request.content_type == enContentType.application_json.value:
+            return ControllerProduct.add(request)
+        elif request.content_type == enContentType.multipart_formdata.value:
+            return ControllerProduct.process(request)
+        else:
+            return HTTPNotImplemented()
 
     @classmethod
-    def view_get_result(cls, request):
-        return ControllerProduct.controller_get_result(request)
+    def get_result(cls, request):
+        return ControllerProduct.get_result(request)
