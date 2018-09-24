@@ -1,0 +1,19 @@
+@staticmethod
+    def validar_instancia(objetos):
+        '''
+        Metodo responsavel por validar se determinado objeto (ou lista de objetos) está instanciado
+        '''
+        try:
+    
+            if isinstance(objetos, list):
+                for _objeto in objetos:
+                    if type(_objeto) is type:
+                        raise TypeError("Objeto {} não instanciado".format(_objeto))
+            else:
+                if type(objetos) is type:
+                        raise TypeError("Objeto {} não instanciado".format(objetos))
+
+            return True
+    
+        except:
+            traceback.print_exc()
